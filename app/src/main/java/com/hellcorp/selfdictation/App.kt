@@ -4,7 +4,7 @@ import android.app.Application
 
 class App : Application() {
 
-    private val MAX_LAUNCH_COUNT = 5
+    private val MAX_LAUNCH_COUNT = 150
 
     override fun onCreate() {
         super.onCreate()

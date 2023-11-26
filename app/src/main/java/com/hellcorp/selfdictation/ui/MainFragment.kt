@@ -11,10 +11,8 @@ internal class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>(
     override val viewModel: MainViewModel by viewModels()
 
     override fun initViews() {
-        TODO("Not yet implemented")
     }
 
     override fun subscribe() {
-        TODO("Not yet implemented")
     }
 }
