@@ -1,7 +1,7 @@
 package com.hellcorp.selfdictation.data.converters
 
 import com.hellcorp.selfdictation.db.entity.LineEntity
-import com.hellcorp.selfdictation.domain.Line
+import com.hellcorp.selfdictation.domain.models.Line
 
 class LinesDbConverter {
     fun map(line: LineEntity) = Line(

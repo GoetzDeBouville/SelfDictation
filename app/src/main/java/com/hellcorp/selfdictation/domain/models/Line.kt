@@ -1,4 +1,4 @@
-package com.hellcorp.selfdictation.domain
+package com.hellcorp.selfdictation.domain.models
 
 data class Line(
     val id: Int,

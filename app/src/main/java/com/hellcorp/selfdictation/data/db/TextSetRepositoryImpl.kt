@@ -6,8 +6,8 @@ import com.hellcorp.selfdictation.db.AppDatabase
 import com.hellcorp.selfdictation.db.entity.LineEntity
 import com.hellcorp.selfdictation.db.entity.TextSetEntity
 import com.hellcorp.selfdictation.db.entity.TextSetLinesEntity
-import com.hellcorp.selfdictation.domain.Line
-import com.hellcorp.selfdictation.domain.TextSet
+import com.hellcorp.selfdictation.domain.models.Line
+import com.hellcorp.selfdictation.domain.models.TextSet
 import com.hellcorp.selfdictation.domain.TextSetRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
