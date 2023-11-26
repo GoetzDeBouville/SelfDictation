@@ -14,9 +14,9 @@ interface LinesDao {
     @Query("SELECT * FROM lines_table")
     suspend fun getLines() : List<LineEntity>
 
-    @Query("SELECT * FROM lines_table WHERE id = :id")
+    @Query("SELECT * FROM lines_table WHERE id = :id ORDER BY number ASC")
     suspend fun getLineById(id: Int) : LineEntity?
 
     @Query("DELETE FROM lines_table WHERE id = :id")
-    suspend fun removetLines(id: Int)
+    suspend fun removetLine(id: Int)
 }
