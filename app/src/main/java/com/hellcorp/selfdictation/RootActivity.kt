@@ -11,7 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.hellcorp.selfdictation.databinding.ActivityMainBinding
 import com.hellcorp.selfdictation.utils.Tools
 
-class MainActivity : AppCompatActivity() {
+class RootActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
