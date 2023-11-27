@@ -1,23 +1,19 @@
 package com.hellcorp.selfdictation
 
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
 import android.view.WindowInsetsController
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.NavHostFragment
 import com.hellcorp.selfdictation.databinding.ActivityMainBinding
+import com.hellcorp.selfdictation.utils.BaseActivity
 import com.hellcorp.selfdictation.utils.Tools
 
-class RootActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+class RootActivity : BaseActivity<ActivityMainBinding>(
+    ActivityMainBinding::inflate
+) {
+    override fun initViews() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.container_view) as NavHostFragment
         val navController = navHostFragment.navController

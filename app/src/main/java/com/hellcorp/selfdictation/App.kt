@@ -1,6 +1,14 @@
 package com.hellcorp.selfdictation
 
 import android.app.Application
+import com.hellcorp.selfdictation.di.converterModule
+import com.hellcorp.selfdictation.di.databaseModule
+import com.hellcorp.selfdictation.di.interactorModule
+import com.hellcorp.selfdictation.di.repositoryModule
+import com.hellcorp.selfdictation.di.viewModelModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
 
 class App : Application() {
 
@@ -8,6 +16,19 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        startKoin {
+            androidLogger()
+            androidContext(this@App)
+            modules(
+                listOf(
+                    converterModule,
+                    databaseModule,
+                    repositoryModule,
+                    interactorModule,
+                    viewModelModule
+                )
+            )
+        }
         if (checkLaunchLimitsExceeded()) {
             throw RuntimeException("Превышен лимит запусков приложения.")
         }
