@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Self Dictation</string>
+    <string name="set_num">Набор %1$s</string>
+    <string name="line_num">Показываемое предложение %1$s из %2$s</string>
+    <string name="letters_sec_num">Букв %1$s; Секунд %2$s</string>
+    <string name="stop_execution">Остановить выполнение\nнабора</string>
+    <string name="show_line">Показать следующее\nпредложение</string>
+    <string name="amount_execution_time">Общее время выполнения %1$s %3$s: </string>
 </resources>

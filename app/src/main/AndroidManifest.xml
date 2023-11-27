@@ -14,7 +14,7 @@
         android:theme="@style/Theme.SelfDictation"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".RootActivity"
             android:exported="true"
             android:screenOrientation="landscape">
             <intent-filter>

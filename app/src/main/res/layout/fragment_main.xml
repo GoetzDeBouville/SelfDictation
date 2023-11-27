@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background"
+    tools:context=".ui.MainFragment">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/ic_main_border"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/cv_next_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv_info">
+
+        <TextView
+            android:id="@+id/tv_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:padding="16dp"
+            android:text="Только король удалился, как окружили Алёшу придворные."
+            android:textColor="@color/black"
+            android:textSize="80sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Только король удалился, как окружили Алёшу придворные." />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cv_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_set_num"
+            style="@style/CardTextStyle"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Набор 6"
+            tools:text="Набор 6" />
+
+        <TextView
+            android:id="@+id/tv_line_num"
+            style="@style/CardTextStyle"
+            android:layout_margin="8dp"
+            android:text="Предложение 5 из 6"
+            tools:text="Предложение 5 из 6" />
+
+        <TextView
+            android:id="@+id/tv_letter_sec_num"
+            style="@style/CardTextStyle"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Букв 46; Секунд 5"
+            tools:text="Букв 46; Секунд 5" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_amount_execution_time"
+        style="@style/CardTextStyle"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Общее время выполнения Набора 6: "
+        app:layout_constraintBottom_toBottomOf="@id/cv_info"
+        app:layout_constraintStart_toEndOf="@+id/cv_info"
+        tools:text="Общее время выполнения Набора 6: " />
+
+    <TextView
+        style="@style/CardTextStyle"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="05:12"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/cv_info"
+        app:layout_constraintStart_toEndOf="@+id/tv_amount_execution_time"
+        tools:text="05:12" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_stop_execution"
+        style="@style/BasicCardsStyle"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cv_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cv_info">
+
+        <TextView
+            style="@style/CardTextStyle"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/stop_execution"
+            android:textAlignment="center" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_next_line"
+        style="@style/BasicCardsStyle"
+        android:layout_width="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/cv_stop_execution">
+
+        <TextView
+            style="@style/CardTextStyle"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:fontFamily="@font/roboto_bold"
+            android:paddingVertical="16dp"
+            android:text="@string/show_line"
+            android:textAlignment="center" />
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
