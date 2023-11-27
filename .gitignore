@@ -31,3 +31,6 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+library_model.ods
+.~lock.library_model.ods#
