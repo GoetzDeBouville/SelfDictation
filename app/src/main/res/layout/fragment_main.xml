@@ -140,7 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="-16dp"
-            android:background="@drawable/ic_main_border"
+            android:background="@drawable/ic_bs_border"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -178,6 +178,13 @@
         app:behavior_peekHeight="440dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:background="@color/main_background" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -185,7 +192,7 @@
             android:fontFamily="@font/roboto_bold"
             android:gravity="center_horizontal"
             android:text="Список наборов"
-            android:textColor="@color/black"
+            android:textColor="@color/secondary_text"
             android:textSize="20sp" />
 
         <androidx.recyclerview.widget.RecyclerView
