@@ -195,6 +195,8 @@
             android:textColor="@color/secondary_text"
             android:textSize="20sp" />
 
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tv_list_set"
             android:layout_width="match_parent"
