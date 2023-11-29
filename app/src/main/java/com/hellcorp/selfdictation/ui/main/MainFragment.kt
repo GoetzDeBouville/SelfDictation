@@ -1,4 +1,4 @@
-package com.hellcorp.selfdictation.ui
+package com.hellcorp.selfdictation.ui.main
 
 import android.view.View
 import android.widget.LinearLayout

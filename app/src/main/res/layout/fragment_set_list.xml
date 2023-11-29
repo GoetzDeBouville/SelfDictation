@@ -1,0 +1,1475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background"
+    tools:context=".ui.setlist.SetListFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set1"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title1"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 1" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shape_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line1"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Тает снег." />
+
+                <TextView
+                    android:id="@+id/line2"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Идёт дождь." />
+
+                <TextView
+                    android:id="@+id/line3"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Небо хмурое." />
+
+                <TextView
+                    android:id="@+id/line4"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Коля заболел." />
+
+                <TextView
+                    android:id="@+id/line5"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Запели птицы." />
+
+                <TextView
+                    android:id="@+id/line6"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Поле опустело." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set2"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toEndOf="@+id/set1"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title2"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 2" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line7"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Трещат морозы." />
+
+                <TextView
+                    android:id="@+id/line8"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Я ищу землянику." />
+
+                <TextView
+                    android:id="@+id/line9"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="В лесу росла ель." />
+
+                <TextView
+                    android:id="@+id/line10"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Наступила осень." />
+
+                <TextView
+                    android:id="@+id/line11"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Дни стали короче." />
+
+                <TextView
+                    android:id="@+id/line12"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="В лесу много берёз." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set3"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toEndOf="@+id/set2"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title3"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 3" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line13"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Прилетели птички." />
+
+                <TextView
+                    android:id="@+id/lin14"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Ярко светит солнце." />
+
+                <TextView
+                    android:id="@+id/line15"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Лида вытерла доску." />
+
+                <TextView
+                    android:id="@+id/line16"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Весело бегут ручьи." />
+
+                <TextView
+                    android:id="@+id/line17"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Подул резкий ветер." />
+
+                <TextView
+                    android:id="@+id/line18"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Зоя прилежно учится." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set4"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toEndOf="@+id/set3"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title4"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 4" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line19"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Дятел долбил дерево." />
+
+                <TextView
+                    android:id="@+id/lin20"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Я хочу посадить цветы." />
+
+                <TextView
+                    android:id="@+id/line21"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Иней запушил деревья." />
+
+                <TextView
+                    android:id="@+id/line22"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Без воды цветы завянут." />
+
+                <TextView
+                    android:id="@+id/line23"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Пролетело жаркое лето." />
+
+                <TextView
+                    android:id="@+id/line24"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Возле дома посадили ель." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set5"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/set1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title5"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 5" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line25"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Солнышко светит и греет." />
+
+                <TextView
+                    android:id="@+id/line26"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Федя решал задачу у доски." />
+
+                <TextView
+                    android:id="@+id/line27"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Загорелась в небе зорька." />
+
+                <TextView
+                    android:id="@+id/line28"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="На деревьях сверкал иней." />
+
+                <TextView
+                    android:id="@+id/line29"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Город Москва стоит на реке." />
+
+                <TextView
+                    android:id="@+id/line30"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="В лесу собирают землянику." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set6"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toEndOf="@+id/set5"
+            app:layout_constraintTop_toBottomOf="@+id/set1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title6"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 6" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line31"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Зимой река покрылась льдом." />
+
+                <TextView
+                    android:id="@+id/line32"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Мальчик подарил маме цветы." />
+
+                <TextView
+                    android:id="@+id/line33"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Дежурные стёрли пыль с доски." />
+
+                <TextView
+                    android:id="@+id/line34"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Оленеводы работают в тундре." />
+
+                <TextView
+                    android:id="@+id/line35"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="На огород забрались цыплята." />
+
+                <TextView
+                    android:id="@+id/line36"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Мы жили возле берёзовой рощи." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set7"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toEndOf="@+id/set6"
+            app:layout_constraintTop_toBottomOf="@+id/set1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title7"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 7" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line37"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Небо покрылось серыми тучами." />
+
+                <TextView
+                    android:id="@+id/line38"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Дети посадили во дворе акацию." />
+
+                <TextView
+                    android:id="@+id/line39"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Бабушка купила внуку букварь." />
+
+                <TextView
+                    android:id="@+id/line40"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Землю согрело тёплое солнышко." />
+
+                <TextView
+                    android:id="@+id/line41"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Моя сестра работает на фабрике." />
+
+                <TextView
+                    android:id="@+id/line42"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Ласково грело весеннее солнце." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set8"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toEndOf="@+id/set7"
+            app:layout_constraintTop_toBottomOf="@+id/set1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title8"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 8" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line43"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Идёт дождик.
+" />
+
+                <TextView
+                    android:id="@+id/line44"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Мы любим каникулы." />
+
+                <TextView
+                    android:id="@+id/line45"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Береги учебные вещи." />
+
+                <TextView
+                    android:id="@+id/line46"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="У Андрея чистая тетрадь." />
+
+                <TextView
+                    android:id="@+id/line47"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Помогай своему товарищу." />
+
+                <TextView
+                    android:id="@+id/line48"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Солнце осветило всю землю." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set9"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/set5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title9"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 9" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line49"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Вода в море солёная на вкус." />
+
+                <TextView
+                    android:id="@+id/line50"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Поезд движется по рельсам." />
+
+                <TextView
+                    android:id="@+id/line51"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Россия – крупное государство." />
+
+                <TextView
+                    android:id="@+id/line52"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Началась большая перемена." />
+
+                <TextView
+                    android:id="@+id/line53"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Дети ходили в лес за грибами." />
+
+                <TextView
+                    android:id="@+id/line54"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Красивы улицы нашего города." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set10"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toEndOf="@+id/set9"
+            app:layout_constraintTop_toBottomOf="@+id/set5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title10"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 10" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line55"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Москва – столица нашей Родины." />
+
+                <TextView
+                    android:id="@+id/line56"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Школьники поливают саженцы." />
+
+                <TextView
+                    android:id="@+id/line57"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Депутаты съехались на съезд." />
+
+                <TextView
+                    android:id="@+id/line58"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Надо быть честным и правдивым." />
+
+                <TextView
+                    android:id="@+id/line59"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Звёзды сияют на башнях Кремля." />
+
+                <TextView
+                    android:id="@+id/line60"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Летом наша семья жила на Волге." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set11"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toEndOf="@+id/set10"
+            app:layout_constraintTop_toBottomOf="@+id/set5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title11"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 11" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line61"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Весело колосится густая рожь." />
+
+                <TextView
+                    android:id="@+id/line62"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Поля запорошило белым снегом." />
+
+                <TextView
+                    android:id="@+id/line63"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Мы читали интересный рассказ." />
+
+                <TextView
+                    android:id="@+id/line64"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Учёный много и упорно работал." />
+
+                <TextView
+                    android:id="@+id/line65"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Новые дома растут очень быстро." />
+
+                <TextView
+                    android:id="@+id/line66"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Из машины вышел Владимир Ильич." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set12"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toEndOf="@+id/set11"
+            app:layout_constraintTop_toBottomOf="@+id/set5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title12"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 12" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line67"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Мальчики принесли сухих веток." />
+
+                <TextView
+                    android:id="@+id/line68"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="В поле поспевают рожь и пшеница." />
+
+                <TextView
+                    android:id="@+id/line69"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Добровольцы поехали на стройку." />
+
+                <TextView
+                    android:id="@+id/line70"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Дети всех стран хотят жить в мире." />
+
+                <TextView
+                    android:id="@+id/line71"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Свежий ветерок повеял прохладой." />
+
+                <TextView
+                    android:id="@+id/line72"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Сверкнула молния и загремел гром." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set13"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/set9">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title13"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 13" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line73"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Давно скосили и убрали луга и поля." />
+
+                <TextView
+                    android:id="@+id/line74"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Белка взобралась на верхнюю ветку." />
+
+                <TextView
+                    android:id="@+id/line75"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Солнце светило ярко, и дети купались." />
+
+                <TextView
+                    android:id="@+id/line76"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Весь народ гордится героями космоса." />
+
+                <TextView
+                    android:id="@+id/line77"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Дедушка Филипп пасёт коровье стадо." />
+
+                <TextView
+                    android:id="@+id/line78"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Люблю я в поле встречать восход солнца." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set14"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toEndOf="@+id/set13"
+            app:layout_constraintTop_toBottomOf="@+id/set9">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title14"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 14" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line79"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Поднялась за рекой большая серая туча." />
+
+                <TextView
+                    android:id="@+id/line80"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="В далёкой тайге живут охотники-эвенки." />
+
+                <TextView
+                    android:id="@+id/line81"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Все радовались встрече с космонавтами." />
+
+                <TextView
+                    android:id="@+id/line82"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Разведчицы отправились в опасный путь." />
+
+                <TextView
+                    android:id="@+id/line83"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Дружная семья и землю превратит в золото." />
+
+                <TextView
+                    android:id="@+id/line84"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Обувь всегда необходимо очищать от пыли." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set15"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toEndOf="@+id/set14"
+            app:layout_constraintTop_toBottomOf="@+id/set9">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title15"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 15" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line85"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Зацветёт, зазеленеет наш весёлый огород." />
+
+                <TextView
+                    android:id="@+id/line86"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Меж редеющих верхушек показалась синева." />
+
+                <TextView
+                    android:id="@+id/line87"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Хороши привольные широкие степи России." />
+
+                <TextView
+                    android:id="@+id/line88"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="На смелого собака лает, а трусливого кусает." />
+
+                <TextView
+                    android:id="@+id/line89"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Нам велит трудиться школа, учит этому семья." />
+
+                <TextView
+                    android:id="@+id/line90"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Наш народ хочет жить в мире со всеми народами." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set16"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toEndOf="@+id/set15"
+            app:layout_constraintTop_toBottomOf="@+id/set9">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title16"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 16" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line91"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="В тайге водятся хищные животные: волки, рыси." />
+
+                <TextView
+                    android:id="@+id/line92"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Сквозь волнистые туманы пробирается луна." />
+
+                <TextView
+                    android:id="@+id/line93"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Школьники готовятся к новому учебному году." />
+
+                <TextView
+                    android:id="@+id/line94"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Много работы в цветочном саду ранней весной." />
+
+                <TextView
+                    android:id="@+id/line95"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="На берегу моря раскинулся спортивный лагерь." />
+
+                <TextView
+                    android:id="@+id/line96"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Скоро небо покроется тучами, заморосит дождь." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set17"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/set13">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title17"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 17" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line97"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Однажды в студёную зимнюю пору я из лесу вышел." />
+
+                <TextView
+                    android:id="@+id/line98"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Пробилась из-под земли вода, и родился родничок." />
+
+                <TextView
+                    android:id="@+id/line99"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Малыши очень любили слушать волшебные сказки." />
+
+                <TextView
+                    android:id="@+id/line100"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Цветы были незнакомые, похожие на колокольчики." />
+
+                <TextView
+                    android:id="@+id/line101"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Прохладная вода хорошо освежила уставших ребят." />
+
+                <TextView
+                    android:id="@+id/line102"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Играют волны, ветер свищет, и мачта гнётся и скрипит." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/set18"
+            style="@style/BasicCardsStyle"
+            android:layout_width="256dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_bs_border"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toEndOf="@+id/set17"
+            app:layout_constraintTop_toBottomOf="@+id/set13">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/set_title18"
+                    style="@style/CardTextStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="8dp"
+                    android:text="Набор 18" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/main_background"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    app:strokeColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/line103"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Победа над врагом наполнила грудь Павки счастьем." />
+
+                <TextView
+                    android:id="@+id/line104"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Каждый день тысячи людей въезжают в новые квартиры." />
+
+                <TextView
+                    android:id="@+id/line105"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Школьники выращивали мандарины, лимоны и апельсины." />
+
+                <TextView
+                    android:id="@+id/line106"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="По лесной заросшей тропе осторожно идёт пограничник." />
+
+                <TextView
+                    android:id="@+id/line107"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Мальчик подошёл к окну и увидел за рощей строящийся дом." />
+
+                <TextView
+                    android:id="@+id/line108"
+                    style="@style/CardTextStyle"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:text="Только король удалился, как окружили Алёшу придворные." />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

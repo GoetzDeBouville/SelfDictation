@@ -7,7 +7,18 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.hellcorp.selfdictation.ui.MainFragment"
+        android:name="com.hellcorp.selfdictation.ui.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/setListFragment"
+        android:name="com.hellcorp.selfdictation.ui.setlist.SetListFragment"
+        android:label="fragment_set_list"
+        tools:layout="@layout/fragment_set_list" >
+        <action
+            android:id="@+id/action_setListFragment_to_mainFragment"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

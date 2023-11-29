@@ -7,4 +7,6 @@
     <string name="show_line">Показать следующее\nпредложение</string>
     <string name="set_list">Список наборов</string>
     <string name="amount_execution_time">Общее время выполнения %1$s %3$s: </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
