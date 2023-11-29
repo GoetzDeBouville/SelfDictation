@@ -10,8 +10,7 @@ import com.hellcorp.selfdictation.R
 
 
 object Tools {
-    const val CLICK_DEBOUNCE_DELAY_MS = 500L
-    const val SEARCH_DEBOUNCE_DELAY_MS = 2000L
+    const val LIST_LINES = "list_lines"
 
     fun amountTextFormater(amount: Int): String {
         val lastDigit = amount % 10
@@ -22,18 +21,6 @@ object Tools {
             lastDigit == 1 -> "$amount трек"
             lastDigit in 2..4 -> "$amount трека"
             else -> "$amount треков"
-        }
-    }
-
-    fun durationTextFormater(duration: Int): String {
-        val lastDigit = duration % 10
-        val lastTwoDigits = duration % 100
-
-        return when {
-            lastTwoDigits in 11..14 -> "$duration минут"
-            lastDigit == 1 -> "$duration минута"
-            lastDigit in 2..4 -> "$duration минуты"
-            else -> "$duration минут"
         }
     }
 

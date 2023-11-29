@@ -26,4 +26,10 @@ class MainViewModel(private val interactor: TextSetInteractor) : BaseViewModel()
             }
         }
     }
+
+    fun countLetters(str: String): Int {
+        return str.count { it.isLetter() }
+    }
+
+
 }
