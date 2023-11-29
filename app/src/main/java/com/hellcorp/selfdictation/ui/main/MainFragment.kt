@@ -1,17 +1,16 @@
 package com.hellcorp.selfdictation.ui.main
 
 import android.view.View
-import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.hellcorp.selfdictation.R
 import com.hellcorp.selfdictation.databinding.FragmentMainBinding
 import com.hellcorp.selfdictation.utils.BaseFragment
 import com.hellcorp.selfdictation.utils.Tools
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-internal class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>(
+class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>(
     FragmentMainBinding::inflate
 ) {
     override val viewModel: MainViewModel by viewModel()
@@ -44,36 +43,36 @@ internal class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>(
         tvLine5.text = line5
         tvLine6.text = line6
 
-
         tvAmountExecutionTime.text =
             getString(R.string.amount_execution_time, setTitle?.get(setTitle.length - 1))
 
         cvNextLine.setOnClickListener {
-            cvNextLine.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.transparent))
+            cvNextLine.setBackgroundColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.transparent
+                )
+            )
             fetchLines(arr, index, bundle?.get(index).toString())
+            if (index == 1) viewModel.startTimer()
             index++
-            if (index > 6) {
-                cvNextLine.isClickable = false
-            }
+            if (index > 6) cvNextLine.isClickable = false
         }
-
-//
-//        val bottomSheetContainer = binding.llBottomSheet
-//        val bottomSheetBehavior: BottomSheetBehavior<LinearLayout> =
-//            BottomSheetBehavior.from(bottomSheetContainer).apply {
-//                state = BottomSheetBehavior.STATE_HIDDEN
-//            }
-//        bottomSheetObserver(bottomSheetBehavior, binding.overlay)
-//
-//        binding.llShowSetList.setOnClickListener {
-//            bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-//        }
     }
 
     override fun subscribe() = with(binding) {
         llBackToSetlist.setOnClickListener {
             findNavController().popBackStack()
         }
+
+        viewModel.time.observe(viewLifecycleOwner) { timeString ->
+            tvExecutionTime.text = timeString
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.stopTimer()
     }
 
     private fun fetchLines(arr: Array<Pair<String?, Int?>>, index: Int, line: String) =
@@ -88,21 +87,4 @@ internal class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>(
             tvLine1.text = line
             tvLine1.visibility = View.VISIBLE
         }
-
-    private fun bottomSheetObserver(
-        bottomSheetBehavior: BottomSheetBehavior<LinearLayout>,
-        overlay: View
-    ) {
-        bottomSheetBehavior.addBottomSheetCallback(object :
-            BottomSheetBehavior.BottomSheetCallback() {
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                if (newState == BottomSheetBehavior.STATE_HIDDEN) overlay.visibility = View.GONE
-                else overlay.visibility = View.VISIBLE
-            }
-
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                overlay.alpha = slideOffset
-            }
-        })
-    }
 }

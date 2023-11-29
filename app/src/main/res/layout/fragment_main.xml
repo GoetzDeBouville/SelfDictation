@@ -214,15 +214,15 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="@+id/ll_main_frame"
             app:layout_constraintBottom_toBottomOf="@id/cv_next_line"
+            app:layout_constraintStart_toStartOf="@+id/ll_main_frame"
             app:layout_constraintTop_toTopOf="@id/cv_next_line">
 
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/ic_arrow_back"
-                android:contentDescription="@string/app_name" />
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_arrow_back" />
 
             <TextView
                 style="@style/CardTextStyle"
@@ -255,39 +255,4 @@
                 android:textSize="20sp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!--        <View-->
-    <!--            android:id="@+id/overlay"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            android:background="@color/transparent"-->
-    <!--            android:visibility="gone" />-->
-
-    <!--        <LinearLayout-->
-    <!--            android:id="@+id/ll_bottom_sheet"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            android:background="@drawable/bs_background"-->
-    <!--            android:orientation="vertical"-->
-    <!--            app:behavior_hideable="true"-->
-    <!--            app:behavior_peekHeight="440dp"-->
-    <!--            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">-->
-
-    <!--            <View-->
-    <!--                android:layout_width="40dp"-->
-    <!--                android:layout_height="4dp"-->
-    <!--                android:layout_gravity="center"-->
-    <!--                android:layout_marginTop="8dp"-->
-    <!--                android:background="@color/main_background" />-->
-
-    <!--            <TextView-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:layout_gravity="center_horizontal"-->
-    <!--                android:fontFamily="@font/roboto_bold"-->
-    <!--                android:gravity="center_horizontal"-->
-    <!--                android:text="Список наборов"-->
-    <!--                android:textColor="@color/secondary_text"-->
-    <!--                android:textSize="20sp" />-->
-    <!--        </LinearLayout>-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
