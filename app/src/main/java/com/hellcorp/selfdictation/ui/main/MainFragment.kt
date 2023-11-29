@@ -35,7 +35,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>(
         tvLine1.text = line1
 
         tvAmountExecutionTime.text =
-            getString(R.string.amount_execution_time, setTitle?.get(setTitle.length - 1))
+            getString(R.string.amount_execution_time, viewModel.extractNumber(setTitle.toString()))
 
         cvNextLine.setOnClickListener {
             Tools.vibroManager(requireContext(), 50)

@@ -1,6 +1,5 @@
 package com.hellcorp.selfdictation.di
 
-import android.util.Log
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
@@ -16,10 +15,8 @@ import org.koin.dsl.module
 
 val databaseModule = module {
     single {
-        // create Room Callback
         val roomCallback = object : RoomDatabase.Callback() {
             override fun onCreate(db: SupportSQLiteDatabase) {
-                Log.i("DBModuleMyLog", "oncreate in roomCallback launched with database = $db")
                 super.onCreate(db)
                 CoroutineScope(Dispatchers.IO).launch {
                     fillDatabase(get())
@@ -27,7 +24,6 @@ val databaseModule = module {
             }
 
             override fun onOpen(db: SupportSQLiteDatabase) {
-                Log.i("DBModuleMyLog", "oncreate in roomCallback launched with database = $db")
                 super.onOpen(db)
             }
         }
@@ -49,7 +45,6 @@ val databaseModule = module {
 }
 
 suspend fun fillDatabase(database: AppDatabase) {
-    Log.e("DBModuleMyLog", "fillDatabase launched with database = $database")
     val textSetEntities = listOf(
         TextSetEntity(id = 1, name = "Set 1"),
         TextSetEntity(id = 2, name = "Set 2"),
