@@ -6,7 +6,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
         <item name="android:backgroundTint">@color/transparent</item>
-        <item name="android:background">@drawable/ic_bs_border</item>
     </style>
 
     <style name="CardTextStyle">

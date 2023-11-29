@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set1"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -20,7 +20,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -86,9 +88,9 @@
                     android:fontFamily="@font/roboto_regular"
                     android:text="Поле опустело." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set2"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -97,7 +99,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toEndOf="@+id/set1"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -162,9 +166,9 @@
                     android:fontFamily="@font/roboto_regular"
                     android:text="В лесу много берёз." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set3"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -173,7 +177,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toEndOf="@+id/set2"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -238,9 +244,9 @@
                     android:fontFamily="@font/roboto_regular"
                     android:text="Зоя прилежно учится." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set4"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -249,7 +255,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toEndOf="@+id/set3"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -314,9 +322,9 @@
                     android:fontFamily="@font/roboto_regular"
                     android:text="Возле дома посадили ель." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set5"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -325,7 +333,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/set1">
+            app:layout_constraintTop_toBottomOf="@+id/set1"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -390,9 +400,9 @@
                     android:fontFamily="@font/roboto_regular"
                     android:text="В лесу собирают землянику." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set6"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -401,7 +411,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toEndOf="@+id/set5"
-            app:layout_constraintTop_toBottomOf="@+id/set1">
+            app:layout_constraintTop_toBottomOf="@+id/set1"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -472,9 +484,9 @@
                     android:maxLines="1"
                     android:text="Мы жили возле берёзовой рощи." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set7"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -483,7 +495,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toEndOf="@+id/set6"
-            app:layout_constraintTop_toBottomOf="@+id/set1">
+            app:layout_constraintTop_toBottomOf="@+id/set1"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -554,9 +568,9 @@
                     android:maxLines="1"
                     android:text="Ласково грело весеннее солнце." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set8"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -565,7 +579,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toEndOf="@+id/set7"
-            app:layout_constraintTop_toBottomOf="@+id/set1">
+            app:layout_constraintTop_toBottomOf="@+id/set1"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -637,9 +653,9 @@
                     android:maxLines="1"
                     android:text="Солнце осветило всю землю." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set9"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -648,7 +664,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/set5">
+            app:layout_constraintTop_toBottomOf="@+id/set5"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -713,9 +731,9 @@
                     android:fontFamily="@font/roboto_regular"
                     android:text="Красивы улицы нашего города." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set10"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -724,7 +742,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toEndOf="@+id/set9"
-            app:layout_constraintTop_toBottomOf="@+id/set5">
+            app:layout_constraintTop_toBottomOf="@+id/set5"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -795,9 +815,9 @@
                     android:maxLines="1"
                     android:text="Летом наша семья жила на Волге." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set11"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -806,7 +826,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toEndOf="@+id/set10"
-            app:layout_constraintTop_toBottomOf="@+id/set5">
+            app:layout_constraintTop_toBottomOf="@+id/set5"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -877,9 +899,9 @@
                     android:maxLines="1"
                     android:text="Из машины вышел Владимир Ильич." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set12"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -888,7 +910,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toEndOf="@+id/set11"
-            app:layout_constraintTop_toBottomOf="@+id/set5">
+            app:layout_constraintTop_toBottomOf="@+id/set5"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -959,9 +983,9 @@
                     android:maxLines="1"
                     android:text="Сверкнула молния и загремел гром." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set13"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -970,7 +994,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/set9">
+            app:layout_constraintTop_toBottomOf="@+id/set9"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1041,9 +1067,9 @@
                     android:maxLines="1"
                     android:text="Люблю я в поле встречать восход солнца." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set14"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -1052,7 +1078,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toEndOf="@+id/set13"
-            app:layout_constraintTop_toBottomOf="@+id/set9">
+            app:layout_constraintTop_toBottomOf="@+id/set9"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1123,9 +1151,9 @@
                     android:maxLines="1"
                     android:text="Обувь всегда необходимо очищать от пыли." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set15"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -1134,7 +1162,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toEndOf="@+id/set14"
-            app:layout_constraintTop_toBottomOf="@+id/set9">
+            app:layout_constraintTop_toBottomOf="@+id/set9"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1205,9 +1235,9 @@
                     android:maxLines="1"
                     android:text="Наш народ хочет жить в мире со всеми народами." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set16"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -1216,7 +1246,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toEndOf="@+id/set15"
-            app:layout_constraintTop_toBottomOf="@+id/set9">
+            app:layout_constraintTop_toBottomOf="@+id/set9"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1287,9 +1319,9 @@
                     android:maxLines="1"
                     android:text="Скоро небо покроется тучами, заморосит дождь." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set17"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -1298,7 +1330,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/set13">
+            app:layout_constraintTop_toBottomOf="@+id/set13"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1369,9 +1403,9 @@
                     android:maxLines="1"
                     android:text="Играют волны, ветер свищет, и мачта гнётся и скрипит." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/set18"
             style="@style/BasicCardsStyle"
             android:layout_width="256dp"
@@ -1380,7 +1414,9 @@
             android:orientation="vertical"
             app:cardCornerRadius="16dp"
             app:layout_constraintStart_toEndOf="@+id/set17"
-            app:layout_constraintTop_toBottomOf="@+id/set13">
+            app:layout_constraintTop_toBottomOf="@+id/set13"
+            app:strokeColor="@color/main_background"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1451,7 +1487,7 @@
                     android:maxLines="1"
                     android:text="Только король удалился, как окружили Алёшу придворные." />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

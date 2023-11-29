@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.hellcorp.selfdictation.utils.BaseViewModel
 
-class MainViewModel() : BaseViewModel() {
+class MainViewModel : BaseViewModel() {
     private val _time = MutableLiveData<String>()
     val time: LiveData<String>
         get() = _time
