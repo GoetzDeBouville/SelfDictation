@@ -1,13 +1,14 @@
 package com.hellcorp.selfdictation.ui.main
 
 import android.view.View
-import androidx.core.content.ContextCompat
-import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.hellcorp.selfdictation.R
 import com.hellcorp.selfdictation.databinding.FragmentMainBinding
 import com.hellcorp.selfdictation.utils.BaseFragment
 import com.hellcorp.selfdictation.utils.Tools
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>(
@@ -21,11 +22,6 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>(
 
         val setTitle = bundle?.get(0)
         val line1 = bundle?.get(1)
-        val line2 = bundle?.get(2)
-        val line3 = bundle?.get(3)
-        val line4 = bundle?.get(4)
-        val line5 = bundle?.get(5)
-        val line6 = bundle?.get(6)
 
         val arr: Array<Pair<String?, Int?>> = arrayOf(
             (bundle?.get(1) to bundle?.get(7)?.toInt()),
@@ -37,36 +33,52 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>(
         )
         tvSetNum.text = setTitle
         tvLine1.text = line1
-        tvLine2.text = line2
-        tvLine3.text = line3
-        tvLine4.text = line4
-        tvLine5.text = line5
-        tvLine6.text = line6
 
         tvAmountExecutionTime.text =
             getString(R.string.amount_execution_time, setTitle?.get(setTitle.length - 1))
 
         cvNextLine.setOnClickListener {
-            cvNextLine.setBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.transparent
-                )
-            )
+            Tools.vibroManager(requireContext(), 50)
+            viewLifecycleOwner.lifecycleScope.launch {
+                tvLine1.visibility = View.VISIBLE
+                arr[index - 1].second?.toLong()?.times(1000L)?.let { it1 -> delay(it1) }
+                tvLine1.visibility = View.GONE
+            }
+            ivNextLine.setImageResource(R.drawable.ic_next)
+
             fetchLines(arr, index, bundle?.get(index).toString())
-            if (index == 1) viewModel.startTimer()
+            if (index == 1) {
+                viewModel.startTimer()
+                tvNextLine.text = getString(R.string.show_line)
+            }
             index++
-            if (index > 6) cvNextLine.isClickable = false
+            if (index > 6) {
+                cvNextLine.isClickable = false
+                cvNextLine.visibility = View.INVISIBLE
+            }
         }
     }
 
     override fun subscribe() = with(binding) {
         llBackToSetlist.setOnClickListener {
             findNavController().popBackStack()
+            Tools.vibroManager(requireContext(), 50)
         }
 
         viewModel.time.observe(viewLifecycleOwner) { timeString ->
             tvExecutionTime.text = timeString
+        }
+
+        cvStopExecution.setOnClickListener {
+            viewModel.stopTimer()
+            Tools.vibroManager(requireContext(), 50)
+            cvNextLine.isClickable = false
+            cvNextLine.visibility = View.INVISIBLE
+            Tools.showSnackbar(
+                root,
+                "Выполнение задания остановлено. Время выполнения: ${tvExecutionTime.text}",
+                requireContext()
+            )
         }
     }
 
@@ -86,5 +98,6 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>(
             )
             tvLine1.text = line
             tvLine1.visibility = View.VISIBLE
+            tvAmountExecutionTime.visibility = View.VISIBLE
         }
 }

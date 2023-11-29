@@ -17,7 +17,7 @@
             android:layout_height="0dp"
             android:layout_margin="16dp"
             android:background="@drawable/ic_main_border"
-            android:gravity="center"
+            android:gravity="center_vertical"
             app:layout_constraintBottom_toTopOf="@+id/cv_next_line"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,82 +36,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Только король удалился, как окружили Алёшу придворные." />
-
-            <TextView
-                android:id="@+id/tv_line2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:padding="16dp"
-                android:textColor="@color/black"
-                android:textSize="80sp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Только король удалился, как окружили Алёшу придворные." />
-
-            <TextView
-                android:id="@+id/tv_line3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:padding="16dp"
-                android:textColor="@color/black"
-                android:textSize="80sp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Только король удалился, как окружили Алёшу придворные." />
-
-            <TextView
-                android:id="@+id/tv_line4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:padding="16dp"
-                android:textColor="@color/black"
-                android:textSize="80sp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Только король удалился, как окружили Алёшу придворные." />
-
-            <TextView
-                android:id="@+id/tv_line5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:padding="16dp"
-                android:textColor="@color/black"
-                android:textSize="80sp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Только король удалился, как окружили Алёшу придворные." />
-
-            <TextView
-                android:id="@+id/tv_line6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:padding="16dp"
-                android:textColor="@color/black"
-                android:textSize="80sp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Только король удалился, как окружили Алёшу придворные." />
+                tools:text="Только король " />
         </LinearLayout>
 
         <LinearLayout
@@ -151,6 +76,7 @@
             style="@style/CardTextStyle"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="8dp"
+            android:visibility="invisible"
             android:fontFamily="@font/roboto_regular"
             app:layout_constraintBottom_toBottomOf="@id/cv_info"
             app:layout_constraintStart_toEndOf="@+id/cv_info"
@@ -177,13 +103,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/cv_info">
 
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_stop" />
+
             <TextView
                 style="@style/CardTextStyle"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text="@string/stop_execution"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -192,20 +125,30 @@
             android:layout_width="0dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/light_green"
+            app:cardBackgroundColor="@color/transparent"
             app:cardCornerRadius="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/cv_stop_execution">
 
+            <ImageView
+                android:id="@+id/iv_next_line"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_play" />
+
             <TextView
+                android:id="@+id/tv_next_line"
                 style="@style/CardTextStyle"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:fontFamily="@font/roboto_bold"
                 android:paddingVertical="16dp"
                 android:text="@string/start_show"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="gone" />
         </androidx.cardview.widget.CardView>
 
         <LinearLayout

@@ -7,7 +7,7 @@
     <string name="show_line">Показать следующее\nпредложение</string>
     <string name="start_show">Начать показ</string>
     <string name="set_list">Список наборов</string>
-    <string name="back_to_set_list">Назад к списку\nнаборов</string>
+    <string name="back_to_set_list">К списку\nнаборов</string>
     <string name="line_number">Предложение %1$s из %2$s</string>
     <string name="amount_execution_time">Общее время выполнения Набора %1$s :</string>
 </resources>
