@@ -5,5 +5,11 @@
     <string name="letters_sec_num">Букв %1$s; Секунд %2$s</string>
     <string name="stop_execution">Остановить выполнение\nнабора</string>
     <string name="show_line">Показать следующее\nпредложение</string>
-    <string name="amount_execution_time">Общее время выполнения %1$s %3$s: </string>
+    <string name="start_show">Начать показ</string>
+    <string name="set_list">Список наборов</string>
+    <string name="back_to_set_list">К списку\nнаборов</string>
+    <string name="line_number">Предложение %1$s из %2$s</string>
+    <string name="amount_execution_time">Общее время выполнения Набора %1$s :</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

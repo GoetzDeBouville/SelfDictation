@@ -61,7 +61,7 @@ class TextSetRepositoryImpl(
     }
 
     override suspend fun removeLine(id: Int) {
-        appDatabase.linesDao().removetLine(id)
+        appDatabase.linesDao().removeLineById(id)
     }
 
     private fun convertSetFromEmtity(set: List<TextSetEntity>): List<TextSet> = set.map {

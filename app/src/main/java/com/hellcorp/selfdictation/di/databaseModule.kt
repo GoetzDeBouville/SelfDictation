@@ -1,22 +1,21 @@
 package com.hellcorp.selfdictation.di
 
 import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.hellcorp.selfdictation.db.AppDatabase
+import com.hellcorp.selfdictation.db.entity.LineEntity
+import com.hellcorp.selfdictation.db.entity.TextSetEntity
+import com.hellcorp.selfdictation.db.entity.TextSetLinesEntity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 val databaseModule = module {
     single {
-        Room.databaseBuilder(
-            androidContext(),
-            AppDatabase::class.java,
-            "your_database_name" // Замените на фактическое имя вашей базы данных
-        )
-            .fallbackToDestructiveMigration()
+        Room.databaseBuilder(androidContext(), AppDatabase::class.java, "app_database.db")
             .build()
     }
-
-    single { get<AppDatabase>().linesDao() }
-    single { get<AppDatabase>().textSetDao() }
-    single { get<AppDatabase>().textSetLinesDao() }
 }

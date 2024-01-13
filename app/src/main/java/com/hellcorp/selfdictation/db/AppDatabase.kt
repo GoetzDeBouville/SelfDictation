@@ -11,8 +11,7 @@ import com.hellcorp.selfdictation.db.entity.TextSetLinesEntity
 
 @Database(
     version = 1,
-    entities = [LineEntity::class, TextSetEntity::class, TextSetLinesEntity::class],
-    exportSchema = true
+    entities = [LineEntity::class, TextSetEntity::class, TextSetLinesEntity::class]
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun linesDao(): LinesDao

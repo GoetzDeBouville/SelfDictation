@@ -1,6 +1,7 @@
 package com.hellcorp.selfdictation
 
 import android.app.Application
+import android.util.Log
 import com.hellcorp.selfdictation.di.converterModule
 import com.hellcorp.selfdictation.di.databaseModule
 import com.hellcorp.selfdictation.di.interactorModule
@@ -12,7 +13,7 @@ import org.koin.core.context.startKoin
 
 class App : Application() {
 
-    private val MAX_LAUNCH_COUNT = 150
+//    private val MAX_LAUNCH_COUNT = 10
 
     override fun onCreate() {
         super.onCreate()
@@ -29,21 +30,22 @@ class App : Application() {
                 )
             )
         }
-        if (checkLaunchLimitsExceeded()) {
-            throw RuntimeException("Превышен лимит запусков приложения.")
-        }
-        updateLaunchCount()
+//        if (checkLaunchLimitsExceeded()) {
+//            throw RuntimeException("Превышен лимит запусков приложения.")
+//        }
+//        updateLaunchCount()
     }
 
-    private fun updateLaunchCount() {
-        val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
-        val currentCount = prefs.getInt("launch_count", 0)
-        prefs.edit().putInt("launch_count", currentCount + 1).apply()
-    }
-
-    private fun checkLaunchLimitsExceeded(): Boolean {
-        val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
-        val currentCount = prefs.getInt("launch_count", 0)
-        return currentCount >= MAX_LAUNCH_COUNT
-    }
+//    private fun updateLaunchCount() {
+//        val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
+//        val currentCount = prefs.getInt("launch_count", 0)
+//        prefs.edit().putInt("launch_count", currentCount + 1).apply()
+//    }
+//
+//    private fun checkLaunchLimitsExceeded(): Boolean {
+//        val prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
+//        val currentCount = prefs.getInt("launch_count", 0)
+//        Log.i("AppMyLog", "currentCount = $currentCount")
+//        return currentCount >= MAX_LAUNCH_COUNT
+//    }
 }
