@@ -4,14 +4,15 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Upsert
 import com.hellcorp.selfdictation.db.entity.TextSetEntity
 
 @Dao
 interface TextSetDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Upsert
     suspend fun insertSet(set: TextSetEntity)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Upsert
     suspend fun insertSets(sets: List<TextSetEntity>)
 
     @Query("SELECT * FROM text_set")

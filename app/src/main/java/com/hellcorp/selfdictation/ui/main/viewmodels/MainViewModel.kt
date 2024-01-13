@@ -1,4 +1,4 @@
-package com.hellcorp.selfdictation.ui.main
+package com.hellcorp.selfdictation.ui.main.viewmodels
 
 import android.os.CountDownTimer
 import androidx.lifecycle.LiveData

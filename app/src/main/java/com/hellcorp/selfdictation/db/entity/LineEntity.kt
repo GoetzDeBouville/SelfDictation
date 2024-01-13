@@ -9,6 +9,6 @@ data class LineEntity(
     var id: Int = 0,
     val number: Int,
     val line: String,
-    val letersNum: Int,
+    val letersNum: Int = line.length,
     val timeSec: Int
 )

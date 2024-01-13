@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.hellcorp.selfdictation.ui.main.MainFragment"
+        android:name="com.hellcorp.selfdictation.ui.main.fragments.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
 </navigation>

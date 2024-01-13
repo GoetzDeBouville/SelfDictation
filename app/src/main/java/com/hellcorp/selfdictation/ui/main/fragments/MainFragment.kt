@@ -1,10 +1,11 @@
-package com.hellcorp.selfdictation.ui.main
+package com.hellcorp.selfdictation.ui.main.fragments
 
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.hellcorp.selfdictation.R
 import com.hellcorp.selfdictation.databinding.FragmentMainBinding
+import com.hellcorp.selfdictation.ui.main.viewmodels.MainViewModel
 import com.hellcorp.selfdictation.utils.BaseFragment
 import com.hellcorp.selfdictation.utils.Tools
 import kotlinx.coroutines.delay
