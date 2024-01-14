@@ -4,7 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#2700B8D4</color>
     <color name="light_green">#805FE10D</color>
-    <color name="transparent">#00FFFFFF</color>
+    <color name="transparent">@android:color/transparent</color>
     <color name="main_background">#80BCBCBC</color>
     <color name="secondary_text">#191919</color>
     <color name="text_menu_color">#A4000000</color>

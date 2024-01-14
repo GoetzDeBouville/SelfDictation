@@ -12,12 +12,13 @@
         android:layout_weight="10"
         android:fontFamily="@font/roboto_regular"
         android:textColor="@color/secondary_text"
-        tools:text="Предложение 1" />
+        android:text="[Новый год наступит скоро.]" />
 
     <TextView
         android:id="@+id/tv_sec"
         style="@style/CardTextStyle"
         android:fontFamily="@font/roboto_regular"
         android:textColor="@color/secondary_text"
-        tools:text="4 c" />
+        android:text="[4 c]"
+        tools:text="[4 c]" />
 </LinearLayout>
