@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="filter_options">
+        <item>Все</item>
+        <item>2 класс</item>
+        <item>3 класс</item>
+        <item>4 класс</item>
+    </string-array>
+</resources>

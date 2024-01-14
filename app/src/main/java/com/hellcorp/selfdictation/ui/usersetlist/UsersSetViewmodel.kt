@@ -2,6 +2,7 @@ package com.hellcorp.selfdictation.ui.usersetlist
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
+import com.airbnb.lottie.animation.content.Content
 import com.hellcorp.selfdictation.domain.TextSetInteractor
 import com.hellcorp.selfdictation.domain.models.SetListState
 import com.hellcorp.selfdictation.domain.models.TextSet
@@ -76,5 +77,12 @@ class UsersSetViewmodel(val interactor: TextSetInteractor) : BaseViewModel() {
         viewModelScope.launch {
             interactor.updateSet(pairTextSet.first)
         }
+    }
+
+    fun filterSetList(classNumber: Int) {
+        val filteredList = pairList.filter {
+            it.first.classNumber == classNumber
+        }
+        _state.value = SetListState.Content(filteredList)
     }
 }
