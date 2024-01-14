@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_background"
+        tools:context=".ui.main.fragments.MainFragment">
+
+        <LinearLayout
+            android:id="@+id/ll_main_frame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/ic_main_border"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toTopOf="@+id/cv_next_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_info">
+
+            <TextView
+                android:id="@+id/tv_line1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:padding="16dp"
+                android:textColor="@color/black"
+                android:textSize="80sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Только король " />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cv_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_set_num"
+                style="@style/CardTextStyle"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                tools:text="Набор 6" />
+
+            <TextView
+                android:id="@+id/tv_line_num"
+                style="@style/CardTextStyle"
+                android:layout_margin="8dp"
+                tools:text="Предложение 5 из 6" />
+
+            <TextView
+                android:id="@+id/tv_letter_sec_num"
+                style="@style/CardTextStyle"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                tools:text="Букв 46; Секунд 5" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_amount_execution_time"
+            style="@style/CardTextStyle"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/roboto_regular"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/cv_info"
+            app:layout_constraintStart_toEndOf="@+id/cv_info"
+            tools:text="Общее время выполнения Набора 6: " />
+
+        <TextView
+            android:id="@+id/tv_execution_time"
+            style="@style/CardTextStyle"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/cv_info"
+            app:layout_constraintStart_toEndOf="@+id/tv_amount_execution_time"
+            tools:text="05:12" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_stop_execution"
+            style="@style/BasicCardsStyle"
+            android:layout_height="0dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cv_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cv_info"
+            app:strokeColor="@color/transparent"
+            app:strokeWidth="2dp">
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_stop" />
+
+            <TextView
+                style="@style/CardTextStyle"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/stop_execution"
+                android:textAlignment="center"
+                android:visibility="invisible" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_next_line"
+            style="@style/BasicCardsStyle"
+            android:layout_width="0dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/cv_stop_execution"
+            app:strokeColor="@color/transparent"
+            app:strokeWidth="2dp">
+
+            <ImageView
+                android:id="@+id/iv_next_line"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_play" />
+
+            <TextView
+                android:id="@+id/tv_next_line"
+                style="@style/CardTextStyle"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingVertical="16dp"
+                android:text="@string/start_show"
+                android:textAlignment="center"
+                android:visibility="gone" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:id="@+id/ll_back_to_setlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/cv_next_line"
+            app:layout_constraintStart_toStartOf="@+id/ll_main_frame"
+            app:layout_constraintTop_toTopOf="@id/cv_next_line">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_arrow_back" />
+
+            <TextView
+                style="@style/CardTextStyle"
+                android:text="@string/back_to_set_list" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_show_set_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-16dp"
+            android:background="@drawable/ic_bs_border"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_arrow_top" />
+
+            <TextView
+                style="@style/CardTextStyle"
+                android:paddingBottom="16dp"
+                android:text="@string/set_list"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

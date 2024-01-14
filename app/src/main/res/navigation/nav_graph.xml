@@ -3,24 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/setListFragment">
-
-    <fragment
-        android:id="@+id/setListFragment"
-        android:name="com.hellcorp.selfdictation.ui.setlist.SetListFragment"
-        android:label="fragment_set_list"
-        tools:layout="@layout/fragment_set_list">
-        <action
-            android:id="@+id/action_setListFragment_to_mainFragment"
-            app:destination="@id/mainFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"  />
-    </fragment>
+    app:startDestination="@id/mainFragment">
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.hellcorp.selfdictation.ui.main.fragments.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_cardFragment"
+            app:destination="@id/cardFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardFragment"
+        tools:layout="@layout/fragment_card"
+        android:name="com.hellcorp.selfdictation.ui.card.fragment.CardFragment"
+        android:label="CardFragment" />
 </navigation>

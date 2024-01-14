@@ -10,6 +10,6 @@
     <string name="back_to_set_list">К списку\nнаборов</string>
     <string name="line_number">Предложение %1$s из %2$s</string>
     <string name="amount_execution_time">Общее время выполнения Набора %1$s :</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="base_set">Базовый список</string>
+    <string name="user_set">Пользовательский список</string>
 </resources>

@@ -35,7 +35,7 @@ class SetListFragment :
                 6
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -56,7 +56,7 @@ class SetListFragment :
                 8
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -77,7 +77,7 @@ class SetListFragment :
                 8
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -98,7 +98,7 @@ class SetListFragment :
                 7
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -119,7 +119,7 @@ class SetListFragment :
                 6
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -140,7 +140,7 @@ class SetListFragment :
                 5
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -161,7 +161,7 @@ class SetListFragment :
                 4
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -182,7 +182,7 @@ class SetListFragment :
                 10
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -203,7 +203,7 @@ class SetListFragment :
                 7
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -224,7 +224,7 @@ class SetListFragment :
                 5
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -245,7 +245,7 @@ class SetListFragment :
                 4
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -266,7 +266,7 @@ class SetListFragment :
                 4
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -287,7 +287,7 @@ class SetListFragment :
                 4
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -308,7 +308,7 @@ class SetListFragment :
                 4
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -329,7 +329,7 @@ class SetListFragment :
                 4
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -350,7 +350,7 @@ class SetListFragment :
                 5
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -371,7 +371,7 @@ class SetListFragment :
                 7
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
 
@@ -392,7 +392,7 @@ class SetListFragment :
                 8
             )
             findNavController().navigate(
-                R.id.action_setListFragment_to_mainFragment, bundleOf(Tools.LIST_LINES to listLines)
+                R.id.action_mainFragment_to_cardFragment, bundleOf(Tools.LIST_LINES to listLines)
             )
         }
     }
