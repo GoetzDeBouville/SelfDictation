@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.fragment.findNavController
 import com.hellcorp.selfdictation.R
 import com.hellcorp.selfdictation.databinding.FragmentUsersSetBinding
 import com.hellcorp.selfdictation.domain.models.SetListState
@@ -30,6 +31,10 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
             viewModel.state.collect {
                 renderState(it)
             }
+        }
+
+        binding.lottieAddNewSet.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_newCardFragment)
         }
     }
 

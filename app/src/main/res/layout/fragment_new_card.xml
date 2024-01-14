@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.newcard.NewCardFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        style="@style/BasicCardsStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="256dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="128dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/main_background"
+        app:strokeWidth="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/spinner_filter"
+                android:layout_width="128dp"
+                android:layout_height="36dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:animateLayoutChanges="true"
+                android:tooltipText="Класс"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_set_title"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="@string/set_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_set_title"
+                    style="@style/TextInputEditTextStyle"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_line1"
+                    style="@style/TextInputLayoutTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="6"
+                    android:hint="@string/line_1">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_line1"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_duration"
+                    style="@style/TextInputLayoutTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="3"
+                    android:hint="@string/duration">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_duration1"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="numberDecimal"
+                        android:maxLength="5" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_line2"
+                    style="@style/TextInputLayoutTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="6"
+                    android:hint="@string/line_2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_line2"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_duration2"
+                    style="@style/TextInputLayoutTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="3"
+                    android:hint="@string/duration">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_duration2"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="numberDecimal"
+                        android:maxLength="5" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_line3"
+                    style="@style/TextInputLayoutTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="6"
+                    android:hint="@string/line_3">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_line3"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_duration3"
+                    style="@style/TextInputLayoutTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="3"
+                    android:hint="@string/duration">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_duration3"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="numberDecimal"
+                        android:maxLength="5" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_line4"
+                    style="@style/TextInputLayoutTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="6"
+                    android:hint="@string/line_4">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_line4"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_duration4"
+                    style="@style/TextInputLayoutTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="3"
+                    android:hint="@string/duration">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_duration4"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="numberDecimal"
+                        android:maxLength="5" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_line5"
+                    style="@style/TextInputLayoutTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="6"
+                    android:hint="@string/line_5">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_line5"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_duration5"
+                    style="@style/TextInputLayoutTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="3"
+                    android:hint="@string/duration">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_duration5"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="numberDecimal"
+                        android:maxLength="5" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_line6"
+                    style="@style/TextInputLayoutTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="6"
+                    android:hint="@string/line_6">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_line6"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_duration6"
+                    style="@style/TextInputLayoutTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="3"
+                    android:hint="@string/duration">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_duration6"
+                        style="@style/TextInputEditTextStyle"
+                        android:inputType="numberDecimal"
+                        android:maxLength="5" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_save"
+        style="@style/BasicCardsStyle"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginVertical="16dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/cardView"
+        app:layout_constraintTop_toBottomOf="@id/cardView"
+        app:strokeColor="@color/gray"
+        app:strokeWidth="2dp">
+
+        <TextView
+            android:id="@+id/tv_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="16dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/save"
+            android:textColor="@color/gray"
+            android:textSize="36sp" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_cancel"
+        style="@style/BasicCardsStyle"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/cv_save"
+        app:layout_constraintEnd_toStartOf="@id/cv_save"
+        app:layout_constraintTop_toTopOf="@id/cv_save"
+        app:strokeColor="@color/red"
+        app:strokeWidth="2dp">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="16dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/cancel"
+            android:textColor="@color/red"
+            android:textSize="36sp" />
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

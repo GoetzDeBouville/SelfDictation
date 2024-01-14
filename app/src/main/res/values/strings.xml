@@ -12,4 +12,14 @@
     <string name="amount_execution_time">Общее время выполнения Набора %1$s :</string>
     <string name="base_set">Базовый список</string>
     <string name="user_set">Пользовательский список</string>
+    <string name="duration">Продолжительность, сек</string>
+    <string name="line_1">Предложение 1</string>
+    <string name="line_2">Предложение 2</string>
+    <string name="line_3">Предложение 3</string>
+    <string name="line_4">Предложение 4</string>
+    <string name="line_5">Предложение 5</string>
+    <string name="line_6">Предложение 6</string>
+    <string name="set_title">Название набора</string>
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отмена</string>
 </resources>

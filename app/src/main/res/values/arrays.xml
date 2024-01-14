@@ -6,4 +6,10 @@
         <item>3 класс</item>
         <item>4 класс</item>
     </string-array>
+    <string-array name="classes">
+        <item>Класс</item>
+        <item>2 класс</item>
+        <item>3 класс</item>
+        <item>4 класс</item>
+    </string-array>
 </resources>

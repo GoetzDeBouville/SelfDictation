@@ -6,11 +6,13 @@ import com.hellcorp.selfdictation.domain.models.TextSet
 class TextSetDbConverter {
     fun map(set: TextSetEntity) = TextSet(
         id = set.id,
-        name = set.name
+        name = set.name,
+        classNumber = set.classNumber
     )
 
     fun map(set: TextSet) = TextSetEntity(
         id = set.id,
-        name = set.name
+        name = set.name,
+        classNumber = set.classNumber
     )
 }
