@@ -11,7 +11,7 @@
         style="@style/BasicCardsStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="256dp"
+        android:layout_marginHorizontal="144dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="128dp"
         android:orientation="vertical"
@@ -22,267 +22,349 @@
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="@color/main_background"
         app:strokeWidth="2dp">
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Spinner
+            android:id="@+id/spinner_filter"
+            android:layout_width="128dp"
+            android:layout_height="36dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:animateLayoutChanges="true"
+            android:tooltipText="Класс"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ti_set_title"
+            style="@style/TextInputLayoutTextStyle"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/set_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_set_title"
+                style="@style/TextInputEditTextStyle"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <Spinner
-                android:id="@+id/spinner_filter"
-                android:layout_width="128dp"
-                android:layout_height="36dp"
-                android:layout_gravity="end"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:animateLayoutChanges="true"
-                android:tooltipText="Класс"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="TouchTargetSizeCheck" />
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ti_set_title"
+                android:id="@+id/ti_line1"
                 style="@style/TextInputLayoutTextStyle"
-                android:layout_width="match_parent"
-                android:layout_marginHorizontal="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:hint="@string/set_title">
+                android:layout_weight="7"
+                android:hint="@string/line_1">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_set_title"
+                    android:id="@+id/et_line1"
                     style="@style/TextInputEditTextStyle"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:baselineAligned="false"
-                android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_duration"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="3"
+                android:hint="@string/duration">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ti_line1"
-                    style="@style/TextInputLayoutTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_weight="6"
-                    android:hint="@string/line_1">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_duration1"
+                    style="@style/TextInputEditTextStyle"
+                    android:inputType="number"
+                    android:maxLength="5" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_line1"
-                        style="@style/TextInputEditTextStyle"
-                        android:inputType="text" />
-                </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_symbols1"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="2"
+                android:hint="@string/number_of_symbols">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ti_duration"
-                    style="@style/TextInputLayoutTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_weight="3"
-                    android:hint="@string/duration">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_duration1"
-                        style="@style/TextInputEditTextStyle"
-                        android:inputType="numberDecimal"
-                        android:maxLength="5" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:baselineAligned="false"
-                android:orientation="horizontal">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ti_line2"
-                    style="@style/TextInputLayoutTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="6"
-                    android:hint="@string/line_2">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_line2"
-                        style="@style/TextInputEditTextStyle"
-                        android:inputType="text" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ti_duration2"
-                    style="@style/TextInputLayoutTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="3"
-                    android:hint="@string/duration">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_duration2"
-                        style="@style/TextInputEditTextStyle"
-                        android:inputType="numberDecimal"
-                        android:maxLength="5" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:baselineAligned="false"
-                android:orientation="horizontal">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ti_line3"
-                    style="@style/TextInputLayoutTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="6"
-                    android:hint="@string/line_3">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_line3"
-                        style="@style/TextInputEditTextStyle"
-                        android:inputType="text" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ti_duration3"
-                    style="@style/TextInputLayoutTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="3"
-                    android:hint="@string/duration">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_duration3"
-                        style="@style/TextInputEditTextStyle"
-                        android:inputType="numberDecimal"
-                        android:maxLength="5" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:baselineAligned="false"
-                android:orientation="horizontal">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ti_line4"
-                    style="@style/TextInputLayoutTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="6"
-                    android:hint="@string/line_4">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_line4"
-                        style="@style/TextInputEditTextStyle"
-                        android:inputType="text" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ti_duration4"
-                    style="@style/TextInputLayoutTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="3"
-                    android:hint="@string/duration">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_duration4"
-                        style="@style/TextInputEditTextStyle"
-                        android:inputType="numberDecimal"
-                        android:maxLength="5" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:baselineAligned="false"
-                android:orientation="horizontal">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ti_line5"
-                    style="@style/TextInputLayoutTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="6"
-                    android:hint="@string/line_5">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_line5"
-                        style="@style/TextInputEditTextStyle"
-                        android:inputType="text" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ti_duration5"
-                    style="@style/TextInputLayoutTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="3"
-                    android:hint="@string/duration">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_duration5"
-                        style="@style/TextInputEditTextStyle"
-                        android:inputType="numberDecimal"
-                        android:maxLength="5" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:baselineAligned="false"
-                android:orientation="horizontal">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ti_line6"
-                    style="@style/TextInputLayoutTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="6"
-                    android:hint="@string/line_6">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_line6"
-                        style="@style/TextInputEditTextStyle"
-                        android:inputType="text" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ti_duration6"
-                    style="@style/TextInputLayoutTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="3"
-                    android:hint="@string/duration">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_duration6"
-                        style="@style/TextInputEditTextStyle"
-                        android:inputType="numberDecimal"
-                        android:maxLength="5" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_symbols1"
+                    style="@style/TextInputEditTextStyle.Symbols"
+                    android:inputType="number"
+                    android:maxLength="5" />
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_line2"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="7"
+                android:hint="@string/line_2">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_line2"
+                    style="@style/TextInputEditTextStyle"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_duration2"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="3"
+                android:hint="@string/duration">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_duration2"
+                    style="@style/TextInputEditTextStyle"
+                    android:inputType="number"
+                    android:maxLength="5" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_symbols2"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="2"
+                android:hint="@string/number_of_symbols">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_symbols2"
+                    style="@style/TextInputEditTextStyle.Symbols"
+                    android:inputType="number"
+                    android:maxLength="5" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_line3"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="7"
+                android:hint="@string/line_3">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_line3"
+                    style="@style/TextInputEditTextStyle"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_duration3"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="3"
+                android:hint="@string/duration">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_duration3"
+                    style="@style/TextInputEditTextStyle"
+                    android:inputType="number"
+                    android:maxLength="5" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_symbols3"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="2"
+                android:hint="@string/number_of_symbols">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_symbols3"
+                    style="@style/TextInputEditTextStyle.Symbols"
+                    android:inputType="number"
+                    android:maxLength="5" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_line4"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="7"
+                android:hint="@string/line_4">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_line4"
+                    style="@style/TextInputEditTextStyle"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_duration4"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="3"
+                android:hint="@string/duration">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_duration4"
+                    style="@style/TextInputEditTextStyle"
+                    android:inputType="number"
+                    android:maxLength="5" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_symbols4"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="2"
+                android:hint="@string/number_of_symbols">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_symbols4"
+                    style="@style/TextInputEditTextStyle.Symbols"
+                    android:inputType="number"
+                    android:maxLength="5" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_line5"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="7"
+                android:hint="@string/line_5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_line5"
+                    style="@style/TextInputEditTextStyle"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_duration5"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="3"
+                android:hint="@string/duration">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_duration5"
+                    style="@style/TextInputEditTextStyle"
+                    android:inputType="number"
+                    android:maxLength="5" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_symbols5"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="2"
+                android:hint="@string/number_of_symbols">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_symbols5"
+                    style="@style/TextInputEditTextStyle.Symbols"
+                    android:inputType="number"
+                    android:maxLength="5" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_line6"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="7"
+                android:hint="@string/line_6">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_line6"
+                    style="@style/TextInputEditTextStyle"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_duration6"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="3"
+                android:hint="@string/duration">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_duration6"
+                    style="@style/TextInputEditTextStyle"
+                    android:inputType="number"
+                    android:maxLength="5" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_symbols6"
+                style="@style/TextInputLayoutTextStyle"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="2"
+                android:hint="@string/number_of_symbols">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_symbols6"
+                    style="@style/TextInputEditTextStyle.Symbols"
+                    android:inputType="number"
+                    android:maxLength="5" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView

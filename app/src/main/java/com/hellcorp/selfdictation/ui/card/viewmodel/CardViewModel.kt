@@ -1,8 +1,11 @@
 package com.hellcorp.selfdictation.ui.card.viewmodel
 
 import android.os.CountDownTimer
+import android.util.Pair
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.hellcorp.selfdictation.domain.models.Line
+import com.hellcorp.selfdictation.domain.models.TextSet
 import com.hellcorp.selfdictation.utils.BaseViewModel
 
 class CardViewModel : BaseViewModel() {
@@ -19,7 +22,7 @@ class CardViewModel : BaseViewModel() {
     }
 
     fun countLetters(str: String): Int {
-        return str.count { it.isLetter() }
+        return str.count { it.isLetter() || it.isDigit() }
     }
 
     fun startTimer() {

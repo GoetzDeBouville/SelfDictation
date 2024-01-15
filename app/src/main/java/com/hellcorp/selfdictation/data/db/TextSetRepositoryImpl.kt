@@ -26,8 +26,8 @@ class TextSetRepositoryImpl(
     }
 
     override suspend fun addLineToSet(set: TextSet, line: Line): Flow<Boolean> = flow {
-        if (appDatabase.textSetLinesDao().getLinesBySetId(set.id)
-                .contains(TextSetLinesEntity(set.id, line.id))
+        if (appDatabase.textSetLinesDao().getLinesBySetId(set.id!!)
+                .contains(TextSetLinesEntity(set.id, line.id!!))
         ) {
             emit(false)
             return@flow

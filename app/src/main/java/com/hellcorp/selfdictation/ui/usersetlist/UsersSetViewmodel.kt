@@ -36,7 +36,7 @@ class UsersSetViewmodel(val interactor: TextSetInteractor) : BaseViewModel() {
         } else {
             viewModelScope.launch {
                 list.forEach { set ->
-                    val lines = interactor.getLineList(set.id).firstOrNull() ?: emptyList()
+                    val lines = interactor.getLineList(set.id!!).firstOrNull() ?: emptyList()
                     val pair = PairTextSet(set, lines)
                     pairList.add(pair)
                 }
@@ -59,12 +59,12 @@ class UsersSetViewmodel(val interactor: TextSetInteractor) : BaseViewModel() {
     fun removeSet(pairTextSet: PairTextSet) {
         viewModelScope.launch {
             pairList.remove(pairTextSet)
-            interactor.getLineList(pairTextSet.first.id).collect { list ->
+            interactor.getLineList(pairTextSet.first.id!!).collect { list ->
                 list.forEach { line ->
-                    interactor.removeLine(line.id)
+                    interactor.removeLine(line.id!!)
                 }
             }
-            interactor.removeSet(pairTextSet.first.id)
+            interactor.removeSet(pairTextSet.first.id!!)
             if (pairList.isEmpty()) {
                 _state.value = SetListState.Empty
             } else {
