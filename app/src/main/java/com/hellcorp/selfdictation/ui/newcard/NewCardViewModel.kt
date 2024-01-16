@@ -21,13 +21,17 @@ class NewCardViewModel(val interactor: TextSetInteractor): BaseViewModel() {
     val stateFields : LiveData<Boolean>
         get() = _stateFields
 
-    fun countSymbols(str: CharSequence?, editText: TextInputEditText) {
+    fun countSymbolsAndSetToEditText(str: CharSequence?, editText: TextInputEditText) {
         if (!str.isNullOrEmpty()) {
             val numberOfSymbols = str.count { it.isLetter() || it.isDigit() }
             editText.setText(numberOfSymbols.toString())
         } else {
             editText.setText("")
         }
+    }
+
+    fun countLetters(str: CharSequence) : Int {
+        return  str.count { it.isLetter() || it.isDigit() }
     }
 
     fun saveDataToDB(pairTextSet: PairTextSet) {

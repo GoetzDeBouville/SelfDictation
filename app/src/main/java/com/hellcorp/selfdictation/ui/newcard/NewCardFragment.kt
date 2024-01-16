@@ -9,6 +9,8 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.hellcorp.selfdictation.R
 import com.hellcorp.selfdictation.databinding.FragmentNewCardBinding
+import com.hellcorp.selfdictation.domain.models.Line
+import com.hellcorp.selfdictation.domain.models.TextSet
 import com.hellcorp.selfdictation.utils.BaseFragment
 import com.hellcorp.selfdictation.utils.vibroError
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -20,6 +22,7 @@ class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
     private lateinit var fields: List<TextInputEditText>
 
     private var classNumber = 0
+
     override fun initViews() = with(binding) {
         fields = listOf(
             etSetTitle, etLine1, etLine2, etLine3, etLine4, etLine5, etLine6,
@@ -78,12 +81,12 @@ class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
         fields.forEach {
             it.doOnTextChanged { text, _, _, _ ->
                 when (it) {
-                    etLine1 -> viewModel.countSymbols(text, etSymbols1)
-                    etLine2 -> viewModel.countSymbols(text, etSymbols2)
-                    etLine3 -> viewModel.countSymbols(text, etSymbols3)
-                    etLine4 -> viewModel.countSymbols(text, etSymbols4)
-                    etLine5 -> viewModel.countSymbols(text, etSymbols5)
-                    etLine6 -> viewModel.countSymbols(text, etSymbols6)
+                    etLine1 -> viewModel.countSymbolsAndSetToEditText(text, etSymbols1)
+                    etLine2 -> viewModel.countSymbolsAndSetToEditText(text, etSymbols2)
+                    etLine3 -> viewModel.countSymbolsAndSetToEditText(text, etSymbols3)
+                    etLine4 -> viewModel.countSymbolsAndSetToEditText(text, etSymbols4)
+                    etLine5 -> viewModel.countSymbolsAndSetToEditText(text, etSymbols5)
+                    etLine6 -> viewModel.countSymbolsAndSetToEditText(text, etSymbols6)
                 }
                 processFields()
             }
@@ -104,8 +107,32 @@ class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
         }
     }
 
-    private fun saveCard() {
-
+    private fun saveCard() = with(binding) {
+        val setLines = TextSet(
+            id = null,
+            name = etSetTitle.text.toString(),
+            classNumber = classNumber
+        )
+        val mapOfLinesToDuration = mapOf(
+            etDuration1 to etLine1, etDuration2 to etLine2, etDuration3 to etLine3,
+            etDuration4 to etLine4, etDuration5 to etLine5, etDuration6 to etLine6
+        )
+        val listOfLines: MutableList<Line> = mutableListOf()
+        var counter = 0
+        mapOfLinesToDuration.forEach {
+            counter += 1
+            val line = Line(
+                id = null,
+                number = counter,
+                line = it.value.text.toString(),
+                letersNum = viewModel.countLetters(it.value.text ?: ""),
+                timeSec = it.key.text.toString().toInt()
+            )
+            listOfLines.add(line)
+        }
+        val finalListOfLines = listOfLines.toList()
+        val preparedData = PairTextSet.create(setLines, finalListOfLines)
+        viewModel.saveDataToDB(preparedData)
     }
 
     private fun showValidation() {
@@ -115,7 +142,7 @@ class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
         }
         fields.forEach {
             if (it.text.isNullOrEmpty()) {
-                it.error = "Поле должно быть заполнено"
+                it.error = getString(R.string.error_message)
                 it.setBackgroundDrawable(
                     AppCompatResources.getDrawable(
                         requireContext(),
