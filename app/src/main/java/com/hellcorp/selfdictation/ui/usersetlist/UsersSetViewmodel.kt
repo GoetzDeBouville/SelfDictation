@@ -2,6 +2,7 @@ package com.hellcorp.selfdictation.ui.usersetlist
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
+import com.airbnb.lottie.animation.content.Content
 import com.hellcorp.selfdictation.domain.TextSetInteractor
 import com.hellcorp.selfdictation.domain.models.SetListState
 import com.hellcorp.selfdictation.domain.models.TextSet
@@ -35,7 +36,7 @@ class UsersSetViewmodel(val interactor: TextSetInteractor) : BaseViewModel() {
         } else {
             viewModelScope.launch {
                 list.forEach { set ->
-                    val lines = interactor.getLineList(set.id).firstOrNull() ?: emptyList()
+                    val lines = interactor.getLineList(set.id!!).firstOrNull() ?: emptyList()
                     val pair = PairTextSet(set, lines)
                     pairList.add(pair)
                 }
@@ -58,12 +59,12 @@ class UsersSetViewmodel(val interactor: TextSetInteractor) : BaseViewModel() {
     fun removeSet(pairTextSet: PairTextSet) {
         viewModelScope.launch {
             pairList.remove(pairTextSet)
-            interactor.getLineList(pairTextSet.first.id).collect { list ->
+            interactor.getLineList(pairTextSet.first.id!!).collect { list ->
                 list.forEach { line ->
-                    interactor.removeLine(line.id)
+                    interactor.removeLine(line.id!!)
                 }
             }
-            interactor.removeSet(pairTextSet.first.id)
+            interactor.removeSet(pairTextSet.first.id!!)
             if (pairList.isEmpty()) {
                 _state.value = SetListState.Empty
             } else {
@@ -76,5 +77,12 @@ class UsersSetViewmodel(val interactor: TextSetInteractor) : BaseViewModel() {
         viewModelScope.launch {
             interactor.updateSet(pairTextSet.first)
         }
+    }
+
+    fun filterSetList(classNumber: Int) {
+        val filteredList = pairList.filter {
+            it.first.classNumber == classNumber
+        }
+        _state.value = SetListState.Content(filteredList)
     }
 }
