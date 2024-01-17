@@ -1,5 +1,6 @@
 package com.hellcorp.selfdictation.data.db
 
+import android.util.Log
 import com.hellcorp.selfdictation.data.converters.LinesDbConverter
 import com.hellcorp.selfdictation.data.converters.TextSetDbConverter
 import com.hellcorp.selfdictation.db.AppDatabase
@@ -13,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.withContext
 
 class TextSetRepositoryImpl(
     private val appDatabase: AppDatabase,
@@ -21,27 +23,44 @@ class TextSetRepositoryImpl(
 ) : TextSetRepository {
 
     override suspend fun addNewSet(set: TextSet) {
-        val entity = textSetDbConverter.map(set)
-        appDatabase.textSetDao().insertSet(entity)
-    }
-
-    override suspend fun addLineToSet(set: TextSet, line: Line): Flow<Boolean> = flow {
-        if (appDatabase.textSetLinesDao().getLinesBySetId(set.id!!)
-                .contains(TextSetLinesEntity(set.id, line.id!!))
-        ) {
-            emit(false)
-            return@flow
+        Log.i("MyLog", "addNewSet set = $set")
+        withContext(Dispatchers.IO)  {
+            val entity = textSetDbConverter.map(set)
+            appDatabase.textSetDao().insertSet(entity)
         }
-        appDatabase.linesDao().insertLine(linesDbConverter.map(line))
-        val setLines = TextSetLinesEntity(set.id, line.id)
-        appDatabase.textSetLinesDao().insertLinesSet(setLines)
-
-        updateSet(set)
-        emit(true)
     }
 
-    override suspend fun updateSet(set: TextSet) {
-        appDatabase.textSetDao().insertSet(textSetDbConverter.map(set))
+//    override suspend fun addLineToSet(setId: Int, line: Line): Flow<Boolean> = flow {
+//        Log.i("MyLog", "addLineToSet setId: Int = $setId line = $line")
+//        if (appDatabase.textSetLinesDao().getLinesBySetId(setId)
+//                .contains(TextSetLinesEntity(setId, line.id))
+//        ) {
+//            emit(false)
+//            return@flow
+//        }
+//        appDatabase.linesDao().insertLine(linesDbConverter.map(line))
+//        val setLines = TextSetLinesEntity(setId, line.id)
+//        appDatabase.textSetLinesDao().insertLinesSet(setLines)
+//
+//        updateSet(setId)
+//        emit(true)
+//    }
+
+    override suspend fun addLineToSet(setId: Int, line: Line) {
+        withContext(Dispatchers.IO) {
+            appDatabase.linesDao().insertLine(linesDbConverter.map(line))
+            val setLinesEntity = TextSetLinesEntity(setId, appDatabase.linesDao().getLastId())
+            appDatabase.textSetLinesDao().insertLinesSet(setLinesEntity)
+        }
+    }
+
+    override suspend fun updateSet(setId: Int) {
+        withContext(Dispatchers.IO) {
+            val textSet = appDatabase.textSetDao().getSetById(setId)
+            if (textSet != null) {
+                appDatabase.textSetDao().insertSet(textSet)
+            }
+        }
     }
 
     override fun getSetList(): Flow<List<TextSet>> = flow {
@@ -55,9 +74,12 @@ class TextSetRepositoryImpl(
         emit(convertLineFromEmtity(lineList))
     }.flowOn(Dispatchers.IO)
 
+    override fun getLastIdSet(): Flow<Int> = flow {
+        emit(appDatabase.textSetDao().getLastId())
+    }.flowOn(Dispatchers.IO)
 
     override suspend fun removeSet(id: Int) {
-        appDatabase.textSetDao().removetSet(id)
+        appDatabase.textSetDao().removeSet(id)
     }
 
     override suspend fun removeLine(id: Int) {

@@ -109,7 +109,7 @@ class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
 
     private fun saveCard() = with(binding) {
         val setLines = TextSet(
-            id = null,
+            id = 0,
             name = etSetTitle.text.toString(),
             classNumber = classNumber
         )
@@ -122,7 +122,7 @@ class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
         mapOfLinesToDuration.forEach {
             counter += 1
             val line = Line(
-                id = null,
+                id = 0,
                 number = counter,
                 line = it.value.text.toString(),
                 letersNum = viewModel.countLetters(it.value.text ?: ""),

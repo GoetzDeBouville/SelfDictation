@@ -6,13 +6,14 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.hellcorp.selfdictation.R
 import com.hellcorp.selfdictation.databinding.FragmentUsersSetBinding
+import com.hellcorp.selfdictation.domain.models.PairTextSet
 import com.hellcorp.selfdictation.domain.models.SetListState
+import com.hellcorp.selfdictation.ui.usersetlist.adapter.SetTextListAdapter
 import com.hellcorp.selfdictation.utils.BaseFragment
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -20,10 +21,12 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
     FragmentUsersSetBinding::inflate
 ) {
     override val viewModel: UsersSetViewmodel by viewModel()
+    private var setListData : List<PairTextSet> = emptyList()
 
     override fun initViews() {
         viewModel.loadDataFromDB()
         initSpinner()
+        initAdapter()
     }
 
     override fun subscribe() {
@@ -39,10 +42,11 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
     }
 
     private fun renderState(state: SetListState) {
+        Log.i("MyLog", "state = $state")
         when (state) {
             is SetListState.Loading -> setLoadingView()
             is SetListState.Empty -> setEmptyView()
-            is SetListState.Content -> setContent()
+            is SetListState.Content -> setContent(state)
         }
     }
 
@@ -50,18 +54,24 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
         lottieProgressBar.isVisible = true
         lottieEmptyList.isVisible = false
         spinnerFilter.isVisible = false
+        tvTotalCount.isVisible = false
     }
 
     private fun setEmptyView() = with(binding) {
         lottieProgressBar.isVisible = false
         lottieEmptyList.isVisible = true
         spinnerFilter.isVisible = false
+        tvTotalCount.isVisible = false
     }
 
-    private fun setContent() = with(binding) {
+    private fun setContent(content: SetListState.Content) = with(binding) {
+        setListData = content.data
         lottieProgressBar.isVisible = false
         lottieEmptyList.isVisible = false
         spinnerFilter.isVisible = true
+        tvTotalCount.isVisible = true
+        updateAdapterData()
+        setCounter(content.setsNumber)
     }
 
     private fun initSpinner() {
@@ -82,5 +92,18 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
 
             override fun onNothingSelected(parent: AdapterView<*>?) = Unit
         }
+    }
+
+    private fun initAdapter() = with(binding){
+        rvSetlist.layoutManager = GridLayoutManager(requireContext(), 4)
+        rvSetlist.adapter = SetTextListAdapter()
+    }
+
+    private fun updateAdapterData() {
+        (binding.rvSetlist.adapter as? SetTextListAdapter)?.updateData(setListData)
+    }
+
+    private fun setCounter(setsNumber: Int) {
+        binding.tvTotalCount.text = getString(R.string.found_number_sets, setsNumber.toString())
     }
 }

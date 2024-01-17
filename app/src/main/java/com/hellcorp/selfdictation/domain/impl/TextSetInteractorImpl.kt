@@ -11,12 +11,12 @@ class TextSetInteractorImpl(private val repository: TextSetRepository) : TextSet
         repository.addNewSet(set)
     }
 
-    override suspend fun addLineToSet(set: TextSet, line: Line): Flow<Boolean> {
-        return repository.addLineToSet(set, line)
+    override suspend fun addLineToSet(setId: Int, line: Line) {
+        return repository.addLineToSet(setId, line)
     }
 
-    override suspend fun updateSet(set: TextSet) {
-        repository.updateSet(set)
+    override suspend fun updateSet(setId: Int) {
+        repository.updateSet(setId)
     }
 
     override fun getSetList(): Flow<List<TextSet>> {
@@ -25,6 +25,10 @@ class TextSetInteractorImpl(private val repository: TextSetRepository) : TextSet
 
     override fun getLineList(setId: Int): Flow<List<Line>> {
         return repository.getLineList(setId)
+    }
+
+    override fun getLastIdSet(): Flow<Int> {
+        return repository.getLastIdSet()
     }
 
     override suspend fun removeSet(id: Int) {
