@@ -21,7 +21,8 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
     FragmentUsersSetBinding::inflate
 ) {
     override val viewModel: UsersSetViewmodel by viewModel()
-    private var setListData : List<PairTextSet> = emptyList()
+    private var setListData: List<PairTextSet> = emptyList()
+    private val listAdapter = SetTextListAdapter()
 
     override fun initViews() {
         viewModel.loadDataFromDB()
@@ -65,12 +66,12 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
     }
 
     private fun setContent(content: SetListState.Content) = with(binding) {
-        setListData = content.data
         lottieProgressBar.isVisible = false
         lottieEmptyList.isVisible = false
         spinnerFilter.isVisible = true
         tvTotalCount.isVisible = true
-        updateAdapterData()
+
+        listAdapter.updateData(content.data)
         setCounter(content.setsNumber)
     }
 
@@ -98,13 +99,11 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
         }
     }
 
-    private fun initAdapter() = with(binding){
-        rvSetlist.layoutManager = GridLayoutManager(requireContext(), 4)
-        rvSetlist.adapter = SetTextListAdapter()
-    }
-
-    private fun updateAdapterData() {
-        (binding.rvSetlist.adapter as? SetTextListAdapter)?.updateData(setListData)
+    private fun initAdapter() = with(binding) {
+        rvSetlist.apply {
+            layoutManager = GridLayoutManager(requireContext(), 4)
+            adapter = listAdapter
+        }
     }
 
     private fun setCounter(setsNumber: Int) {

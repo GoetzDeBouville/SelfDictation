@@ -1,5 +1,6 @@
 package com.hellcorp.selfdictation.ui.usersetlist.adapter
 
+import android.media.RouteListingPreference.Item
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -9,6 +10,8 @@ import com.hellcorp.selfdictation.ui.newcard.PairTextSet
 
 class SetTextListAdapter(private var onClicked: ((PairTextSet) -> Unit)? = null) :
     RecyclerView.Adapter<SetTextListAdapter.SetTextListViewHolder>() {
+    private var pairTextSetList: List<PairTextSet> = emptyList()
+
     inner class SetTextListViewHolder(
         private val binding: ItemSetLinesBinding
     ) : RecyclerView.ViewHolder(binding.root) {
@@ -16,6 +19,7 @@ class SetTextListAdapter(private var onClicked: ((PairTextSet) -> Unit)? = null)
             val textSet = pairTextSet.first
             val listOfLines = pairTextSet.second
             tvSetTitle1.text = textSet.name
+            tvLine1.text = listOfLines.getOrNull(0)?.line ?: ""
             tvLine2.text = listOfLines.getOrNull(1)?.line ?: ""
             tvLine3.text = listOfLines.getOrNull(2)?.line ?: ""
             tvLine4.text = listOfLines.getOrNull(3)?.line ?: ""
@@ -23,8 +27,6 @@ class SetTextListAdapter(private var onClicked: ((PairTextSet) -> Unit)? = null)
             tvLine6.text = listOfLines.getOrNull(5)?.line ?: ""
         }
     }
-
-    private var pairTextSetList: List<PairTextSet> = emptyList()
 
     inner class SetTextListCallback(
         private val oldList: List<PairTextSet>,

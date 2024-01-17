@@ -48,13 +48,13 @@ class TextSetRepositoryImpl(
 
     override fun getSetList(): Flow<List<TextSet>> = flow {
         val setList = appDatabase.textSetDao().getSet()
-        emit(convertSetFromEmtity(setList))
+        emit(convertSetFromEmtity(setList.sortedBy { it.name }))
     }.flowOn(Dispatchers.IO)
 
     override fun getLineList(setId: Int): Flow<List<Line>> = flow {
         val textSetLines = appDatabase.textSetLinesDao().getLinesBySetId(setId)
-        val lineList = textSetLines.mapNotNull { appDatabase.linesDao().getLineById(setId) }
-        emit(convertLineFromEmtity(lineList))
+        val lineList = textSetLines.mapNotNull { appDatabase.linesDao().getLineById(it.linesId) }
+        emit(convertLineFromEmtity(lineList.sortedBy { it.number }))
     }.flowOn(Dispatchers.IO)
 
     override fun getLastIdSet(): Flow<Int> = flow {
