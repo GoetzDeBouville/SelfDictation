@@ -47,7 +47,7 @@ class NewCardViewModel(private val interactor: TextSetInteractor) : BaseViewMode
     }
 
     private suspend fun saveSetToDB(textSet: TextSet): Int = suspendCoroutine { continuation ->
-        var setId = 0
+        var setId: Int
         viewModelScope.launch {
             interactor.addNewSet(textSet)
             interactor.getLastIdSet().collect {

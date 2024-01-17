@@ -23,28 +23,11 @@ class TextSetRepositoryImpl(
 ) : TextSetRepository {
 
     override suspend fun addNewSet(set: TextSet) {
-        Log.i("MyLog", "addNewSet set = $set")
         withContext(Dispatchers.IO)  {
             val entity = textSetDbConverter.map(set)
             appDatabase.textSetDao().insertSet(entity)
         }
     }
-
-//    override suspend fun addLineToSet(setId: Int, line: Line): Flow<Boolean> = flow {
-//        Log.i("MyLog", "addLineToSet setId: Int = $setId line = $line")
-//        if (appDatabase.textSetLinesDao().getLinesBySetId(setId)
-//                .contains(TextSetLinesEntity(setId, line.id))
-//        ) {
-//            emit(false)
-//            return@flow
-//        }
-//        appDatabase.linesDao().insertLine(linesDbConverter.map(line))
-//        val setLines = TextSetLinesEntity(setId, line.id)
-//        appDatabase.textSetLinesDao().insertLinesSet(setLines)
-//
-//        updateSet(setId)
-//        emit(true)
-//    }
 
     override suspend fun addLineToSet(setId: Int, line: Line) {
         withContext(Dispatchers.IO) {

@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 
 class UsersSetViewmodel(private val interactor: TextSetInteractor) : BaseViewModel() {
-    private val pairList: MutableList<PairTextSet> = mutableListOf()
+    private var pairList: MutableList<PairTextSet> = mutableListOf()
     private var _state = MutableStateFlow<SetListState>(SetListState.Loading)
     val state: StateFlow<SetListState>
         get() = _state
@@ -37,12 +37,12 @@ class UsersSetViewmodel(private val interactor: TextSetInteractor) : BaseViewMod
             _state.value = SetListState.Empty
         } else {
             viewModelScope.launch {
-                list.forEach { set ->
-                    val lines =
-                        interactor.getLineList(set.id).firstOrNull() ?: emptyList()
-                    val pair = PairTextSet(set, lines)
-                    pairList.add(pair)
+                val pairs = list.map { set ->
+                    val lines = interactor.getLineList(set.id).firstOrNull() ?: emptyList()
+                    PairTextSet(set, lines)
                 }
+                Log.i("MyLog", "processResult pairs = $pairs")
+                pairList = pairs.toMutableList()
                 _state.value = SetListState.Content(pairList, pairList.size)
             }
         }

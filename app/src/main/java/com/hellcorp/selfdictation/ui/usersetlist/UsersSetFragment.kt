@@ -42,7 +42,7 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
     }
 
     private fun renderState(state: SetListState) {
-        Log.i("MyLog", "state = $state")
+        Log.i("MyLog", "renderState state = $state")
         when (state) {
             is SetListState.Loading -> setLoadingView()
             is SetListState.Empty -> setEmptyView()
@@ -87,7 +87,11 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
                 position: Int,
                 id: Long
             ) {
-                viewModel.filterSetList(position + 1)
+                if (position > 0) {
+                    viewModel.filterSetList(position + 1)
+                } else {
+                    viewModel.loadDataFromDB()
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) = Unit
