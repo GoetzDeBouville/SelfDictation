@@ -108,15 +108,26 @@ class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
     }
 
     private fun saveCard() = with(binding) {
-        val setLines = TextSet(
-            id = 0,
-            name = etSetTitle.text.toString(),
-            classNumber = classNumber
-        )
-        val mapOfLinesToDuration = mapOf(
-            etDuration1 to etLine1, etDuration2 to etLine2, etDuration3 to etLine3,
-            etDuration4 to etLine4, etDuration5 to etLine5, etDuration6 to etLine6
-        )
+        val setLines = buildSet()
+        val finalListOfLines = buildListOfLines()
+        val preparedData = PairTextSet.create(setLines, finalListOfLines)
+        viewModel.saveDataToDB(preparedData)
+        findNavController().popBackStack()
+    }
+
+    private fun buildSet() = TextSet(
+        id = 0,
+        name = binding.etSetTitle.text.toString(),
+        classNumber = classNumber
+    )
+
+    private fun buildListOfLines(): List<Line> {
+        val mapOfLinesToDuration = with(binding) {
+            mapOf(
+                etDuration1 to etLine1, etDuration2 to etLine2, etDuration3 to etLine3,
+                etDuration4 to etLine4, etDuration5 to etLine5, etDuration6 to etLine6
+            )
+        }
         val listOfLines: MutableList<Line> = mutableListOf()
         var counter = 0
         mapOfLinesToDuration.forEach {
@@ -130,9 +141,7 @@ class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
             )
             listOfLines.add(line)
         }
-        val finalListOfLines = listOfLines.toList()
-        val preparedData = PairTextSet.create(setLines, finalListOfLines)
-        viewModel.saveDataToDB(preparedData)
+        return listOfLines.toList()
     }
 
     private fun showValidation() {

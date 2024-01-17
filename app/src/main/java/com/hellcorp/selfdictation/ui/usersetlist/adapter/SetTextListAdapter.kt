@@ -2,6 +2,7 @@ package com.hellcorp.selfdictation.ui.usersetlist.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.hellcorp.selfdictation.databinding.ItemSetLinesBinding
 import com.hellcorp.selfdictation.ui.newcard.PairTextSet
@@ -25,6 +26,23 @@ class SetTextListAdapter(private var onClicked: ((PairTextSet) -> Unit)? = null)
 
     private var pairTextSetList: List<PairTextSet> = emptyList()
 
+    inner class SetTextListCallback(
+        private val oldList: List<PairTextSet>,
+        private val newList: List<PairTextSet>
+    ) : DiffUtil.Callback() {
+        override fun getOldListSize() = oldList.size
+
+        override fun getNewListSize() = newList.size
+
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition] == newList[newItemPosition]
+        }
+
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition] == newList[newItemPosition]
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SetTextListViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemSetLinesBinding.inflate(layoutInflater, parent, false)
@@ -40,7 +58,10 @@ class SetTextListAdapter(private var onClicked: ((PairTextSet) -> Unit)? = null)
     }
 
     fun updateData(newData: List<PairTextSet>) {
+        val diffCallback = SetTextListCallback(pairTextSetList, newData)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
         pairTextSetList = newData
+        diffResult.dispatchUpdatesTo(this)
         notifyDataSetChanged()
     }
 }

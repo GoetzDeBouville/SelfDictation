@@ -41,7 +41,6 @@ class UsersSetViewmodel(private val interactor: TextSetInteractor) : BaseViewMod
                     val lines = interactor.getLineList(set.id).firstOrNull() ?: emptyList()
                     PairTextSet(set, lines)
                 }
-                Log.i("MyLog", "processResult pairs = $pairs")
                 pairList = pairs.toMutableList()
                 _state.value = SetListState.Content(pairList, pairList.size)
             }
