@@ -36,7 +36,7 @@ class CardFragment : BaseFragment<FragmentCardBinding, CardViewModel>(
         tvLine1.text = line1
 
         tvAmountExecutionTime.text =
-            getString(R.string.amount_execution_time, viewModel.extractNumber(setTitle.toString()))
+            getString(R.string.amount_execution_time)
 
         cvNextLine.setOnClickListener {
             Tools.vibroManager(requireContext(), 50)
