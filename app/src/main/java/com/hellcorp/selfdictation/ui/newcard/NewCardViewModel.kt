@@ -42,27 +42,18 @@ class NewCardViewModel(private val interactor: TextSetInteractor) : BaseViewMode
 
     fun saveDataToDB(pairTextSet: PairTextSet) {
         viewModelScope.launch {
-            val setId = saveSetToDB(pairTextSet.first)
+            var setId = 0
+            interactor.addNewSet(pairTextSet.first)
+            if (pairTextSet.first.id != 0) {
+                setId = pairTextSet.first.id
+            } else {
+                interactor.getLastIdSet().collect {
+                    setId = it
+                }
+            }
             pairTextSet.second.forEach {
-                saveLinetoDB(setId, it)
+                interactor.addLineToSet(setId, it)
             }
-        }
-    }
-
-    private suspend fun saveSetToDB(textSet: TextSet): Int = suspendCoroutine { continuation ->
-        var setId: Int
-        viewModelScope.launch {
-            interactor.addNewSet(textSet)
-            interactor.getLastIdSet().collect {
-                setId = it
-                continuation.resume(setId)
-            }
-        }
-    }
-
-    private fun saveLinetoDB(setId: Int, line: Line) {
-        viewModelScope.launch {
-            interactor.addLineToSet(setId, line)
         }
     }
 

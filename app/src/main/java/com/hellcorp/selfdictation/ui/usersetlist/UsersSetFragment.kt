@@ -19,6 +19,7 @@ import com.hellcorp.selfdictation.databinding.FragmentUsersSetBinding
 import com.hellcorp.selfdictation.domain.models.SetListState
 import com.hellcorp.selfdictation.ui.main.fragments.MainFragment
 import com.hellcorp.selfdictation.ui.main.viewmodels.PairTextSet
+import com.hellcorp.selfdictation.ui.usersetlist.adapter.CustomArrayAdapter
 import com.hellcorp.selfdictation.ui.usersetlist.adapter.SetTextListAdapter
 import com.hellcorp.selfdictation.utils.BaseFragment
 import com.hellcorp.selfdictation.utils.Tools
@@ -97,7 +98,7 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
 
     private fun initSpinner() {
         val filterOptions = resources.getStringArray(R.array.filter_options)
-        val adapter = ArrayAdapter(requireContext(), R.layout.item_spinner, filterOptions)
+        val adapter = CustomArrayAdapter(requireContext(), R.layout.item_spinner, filterOptions)
         adapter.setDropDownViewResource(R.layout.item_dropdown_spinner)
         binding.spinnerFilter.adapter = adapter
 

@@ -1,5 +1,6 @@
 package com.hellcorp.selfdictation.ui.newcard
 
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -13,6 +14,7 @@ import com.hellcorp.selfdictation.databinding.FragmentNewCardBinding
 import com.hellcorp.selfdictation.domain.models.Line
 import com.hellcorp.selfdictation.domain.models.TextSet
 import com.hellcorp.selfdictation.ui.main.viewmodels.PairTextSet
+import com.hellcorp.selfdictation.ui.usersetlist.adapter.CustomArrayAdapter
 import com.hellcorp.selfdictation.utils.BaseFragment
 import com.hellcorp.selfdictation.utils.Tools
 import com.hellcorp.selfdictation.utils.vibroError
@@ -77,7 +79,7 @@ open class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewMod
 
     private fun initSpinner() = with(binding) {
         val filterOptions = resources.getStringArray(R.array.classes)
-        val adapter = ArrayAdapter(requireContext(), R.layout.item_spinner, filterOptions)
+        val adapter = CustomArrayAdapter(requireContext(), R.layout.item_spinner, filterOptions)
         adapter.setDropDownViewResource(R.layout.item_dropdown_spinner)
         spinnerFilter.adapter = adapter
 
@@ -133,6 +135,7 @@ open class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewMod
         val setLines = buildSet()
         val finalListOfLines = buildListOfLines()
         val preparedData = PairTextSet.create(setLines, finalListOfLines)
+        Log.i("MyLog", "NewCarsFragment prepareData = $preparedData")
         viewModel.saveDataToDB(preparedData)
         findNavController().popBackStack()
     }
