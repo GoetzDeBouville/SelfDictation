@@ -11,8 +11,52 @@
     <style name="CardTextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">1</item>
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textColor">@color/secondary_text</item>
     </style>
+
+    <style name="TextInputLayoutTextStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="boxBackgroundColor">@color/transparent</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="hintAnimationEnabled">true</item>
+        <item name="errorEnabled">true</item>
+        <item name="colorError">@color/red</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="boxStrokeColor">@color/gray</item>
+        <item name="hintTextColor">@color/hint_color</item>
+    </style>
+
+    <style name="TextInputEditTextStyle" parent="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="TextInputLayoutTextStyle.Symbols">
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="TextInputEditTextStyle.Symbols">
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="AlertDialog" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="android:background">@drawable/dialog_background</item>
+        <item name="android:windowBackground">@drawable/dialog_background</item>
+    </style>
+
 </resources>

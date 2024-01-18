@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_background"
     tools:context=".ui.setlist.SetListFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +13,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set1"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -93,7 +92,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set2"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -171,7 +170,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set3"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -249,7 +248,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set4"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -327,7 +326,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set5"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -405,7 +404,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set6"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -489,7 +488,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set7"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -573,7 +572,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set8"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -658,7 +657,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set9"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -736,7 +735,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set10"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -820,7 +819,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set11"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -904,7 +903,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set12"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -988,7 +987,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set13"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -1072,7 +1071,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set14"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -1156,7 +1155,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set15"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -1240,7 +1239,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set16"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -1324,7 +1323,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set17"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
@@ -1408,7 +1407,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/set18"
             style="@style/BasicCardsStyle"
-            android:layout_width="256dp"
+            android:layout_width="280dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical"

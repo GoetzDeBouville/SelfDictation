@@ -9,6 +9,8 @@ import androidx.navigation.fragment.NavHostFragment
 import com.hellcorp.selfdictation.databinding.ActivityMainBinding
 import com.hellcorp.selfdictation.utils.BaseActivity
 import com.hellcorp.selfdictation.utils.Tools
+import com.hellcorp.selfdictation.utils.applyBlurEffect
+import com.hellcorp.selfdictation.utils.clearBlurEffect
 
 class RootActivity : BaseActivity<ActivityMainBinding>(
     ActivityMainBinding::inflate
@@ -27,5 +29,13 @@ class RootActivity : BaseActivity<ActivityMainBinding>(
             )
             else window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
+    }
+
+    fun applyBlurEffect() {
+        binding.root.applyBlurEffect()
+    }
+
+    fun clearBlurEffect() {
+        binding.root.clearBlurEffect()
     }
 }

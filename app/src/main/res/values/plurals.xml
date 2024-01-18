@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="founded_sets">
+        <item quantity="one">Найден %d набор</item>
+        <item quantity="few">Найдено %d набора</item>
+        <item quantity="many">Найдено %d наборов</item>
+        <item quantity="other">Найдено %d наборов</item>
+    </plurals>
+</resources>

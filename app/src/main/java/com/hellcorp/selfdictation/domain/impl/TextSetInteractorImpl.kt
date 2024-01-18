@@ -4,6 +4,7 @@ import com.hellcorp.selfdictation.domain.TextSetInteractor
 import com.hellcorp.selfdictation.domain.TextSetRepository
 import com.hellcorp.selfdictation.domain.models.Line
 import com.hellcorp.selfdictation.domain.models.TextSet
+import com.hellcorp.selfdictation.ui.main.viewmodels.PairTextSet
 import kotlinx.coroutines.flow.Flow
 
 class TextSetInteractorImpl(private val repository: TextSetRepository) : TextSetInteractor {
@@ -11,20 +12,28 @@ class TextSetInteractorImpl(private val repository: TextSetRepository) : TextSet
         repository.addNewSet(set)
     }
 
-    override suspend fun addLineToSet(set: TextSet, line: Line): Flow<Boolean> {
-        return repository.addLineToSet(set, line)
+    override suspend fun addLineToSet(setId: Int, line: Line) {
+        return repository.addLineToSet(setId, line)
     }
 
-    override suspend fun updateSet(set: TextSet) {
-        repository.updateSet(set)
+    override suspend fun updateSet(setId: Int) {
+        repository.updateSet(setId)
     }
 
-    override fun getSetList(): Flow<List<TextSet>> {
+    override suspend fun getCardById(setId: Int): Flow<PairTextSet> {
+        return repository.getCardByID(setId)
+    }
+
+    override suspend fun getSetList(): Flow<List<TextSet>> {
         return repository.getSetList()
     }
 
-    override fun getLineList(setId: Int): Flow<List<Line>> {
+    override suspend fun getLineList(setId: Int): Flow<List<Line>> {
         return repository.getLineList(setId)
+    }
+
+    override suspend fun getLastIdSet(): Flow<Int> {
+        return repository.getLastIdSet()
     }
 
     override suspend fun removeSet(id: Int) {
