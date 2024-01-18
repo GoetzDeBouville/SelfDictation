@@ -14,4 +14,5 @@
     <color name="main_background">#80BCBCBC</color>
     <color name="secondary_text">#191919</color>
     <color name="text_menu_color">#A4000000</color>
+    <color name="popupmenu">#DDAEAFB4</color>
 </resources>

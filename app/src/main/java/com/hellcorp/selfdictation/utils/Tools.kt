@@ -15,6 +15,7 @@ import com.hellcorp.selfdictation.R
 
 object Tools {
     const val LIST_LINES = "list_lines"
+    const val CLICK_DEBOUNCE_DELAY_500MS = 500L
     fun isBackgroundColorLight(color: Int): Boolean {
         val red = Color.red(color)
         val green = Color.green(color)

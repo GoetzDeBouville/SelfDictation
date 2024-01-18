@@ -25,4 +25,11 @@
     <string name="number_of_symbols">Число символов</string>
     <string name="error_message">Поле должно быть заполнено</string>
     <string name="found_number_sets">Найдено %1$s наборов</string>
+    <string name="delete">Удалить</string>
+    <string name="remove_set">Удалить %1$s?</string>
+    <string name="successfully_removed">Набор %1$s успешно удалён</string>
+    <string name="remove_dialog">Подтверждение удаления набора</string>
+    <string name="edit">Отредактировать</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
 </resources>

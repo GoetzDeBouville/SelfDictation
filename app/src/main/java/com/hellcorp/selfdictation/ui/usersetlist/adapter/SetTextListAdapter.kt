@@ -1,14 +1,17 @@
 package com.hellcorp.selfdictation.ui.usersetlist.adapter
 
-import android.media.RouteListingPreference.Item
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.hellcorp.selfdictation.databinding.ItemSetLinesBinding
 import com.hellcorp.selfdictation.ui.newcard.PairTextSet
 
-class SetTextListAdapter(private var onClicked: ((PairTextSet) -> Unit)? = null) :
+class SetTextListAdapter(
+    private var onSetClicked: ((PairTextSet) -> Unit)? = null,
+    private var onSetLongClicked: ((PairTextSet, View) -> Unit)? = { _, _ -> }
+) :
     RecyclerView.Adapter<SetTextListAdapter.SetTextListViewHolder>() {
     private var pairTextSetList: List<PairTextSet> = emptyList()
 
@@ -25,6 +28,11 @@ class SetTextListAdapter(private var onClicked: ((PairTextSet) -> Unit)? = null)
             tvLine4.text = listOfLines.getOrNull(3)?.line ?: ""
             tvLine5.text = listOfLines.getOrNull(4)?.line ?: ""
             tvLine6.text = listOfLines.getOrNull(5)?.line ?: ""
+
+            itemView.setOnLongClickListener {
+                this@SetTextListAdapter.onSetLongClicked?.invoke(pairTextSet, itemView)
+                true
+            }
         }
     }
 
@@ -45,6 +53,10 @@ class SetTextListAdapter(private var onClicked: ((PairTextSet) -> Unit)? = null)
         }
     }
 
+    fun setOnClickListener(listener: (PairTextSet) -> Unit) {
+        onSetClicked = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SetTextListViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemSetLinesBinding.inflate(layoutInflater, parent, false)
@@ -57,6 +69,9 @@ class SetTextListAdapter(private var onClicked: ((PairTextSet) -> Unit)? = null)
 
     override fun onBindViewHolder(holder: SetTextListViewHolder, position: Int) {
         holder.bind(pairTextSetList[position])
+        holder.itemView.setOnClickListener {
+            onSetClicked?.invoke(pairTextSetList[position])
+        }
     }
 
     fun updateData(newData: List<PairTextSet>) {

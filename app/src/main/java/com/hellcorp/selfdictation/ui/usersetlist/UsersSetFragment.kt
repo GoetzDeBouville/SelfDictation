@@ -1,19 +1,33 @@
 package com.hellcorp.selfdictation.ui.usersetlist
 
-import android.util.Log
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.hellcorp.selfdictation.R
+import com.hellcorp.selfdictation.RootActivity
 import com.hellcorp.selfdictation.databinding.FragmentUsersSetBinding
 import com.hellcorp.selfdictation.domain.models.PairTextSet
 import com.hellcorp.selfdictation.domain.models.SetListState
+import com.hellcorp.selfdictation.ui.main.fragments.MainFragment
 import com.hellcorp.selfdictation.ui.usersetlist.adapter.SetTextListAdapter
 import com.hellcorp.selfdictation.utils.BaseFragment
+import com.hellcorp.selfdictation.utils.Tools
+import com.hellcorp.selfdictation.utils.applyBlurEffect
+import com.hellcorp.selfdictation.utils.clearBlurEffect
+import com.hellcorp.selfdictation.utils.debounce
+import com.hellcorp.selfdictation.utils.vibrateShot
+import com.skydoves.powermenu.MenuAnimation
+import com.skydoves.powermenu.PowerMenu
+import com.skydoves.powermenu.PowerMenuItem
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -21,8 +35,11 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
     FragmentUsersSetBinding::inflate
 ) {
     override val viewModel: UsersSetViewmodel by viewModel()
-    private var setListData: List<PairTextSet> = emptyList()
-    private val listAdapter = SetTextListAdapter()
+    private var onSetClicked: ((PairTextSet) -> Unit)? = null
+    private val listAdapter = SetTextListAdapter(
+        onSetClicked,
+        onSetLongClicked = ::showPowerMenu
+    )
 
     override fun initViews() {
         viewModel.loadDataFromDB()
@@ -40,10 +57,11 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
         binding.lottieAddNewSet.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_newCardFragment)
         }
+
+        setCicklisteners()
     }
 
     private fun renderState(state: SetListState) {
-        Log.i("MyLog", "renderState state = $state")
         when (state) {
             is SetListState.Loading -> setLoadingView()
             is SetListState.Empty -> setEmptyView()
@@ -108,5 +126,111 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
 
     private fun setCounter(setsNumber: Int) {
         binding.tvTotalCount.text = getString(R.string.found_number_sets, setsNumber.toString())
+    }
+
+    private fun setCicklisteners() {
+        onSetClicked = debounce(
+            Tools.CLICK_DEBOUNCE_DELAY_500MS,
+            viewLifecycleOwner.lifecycleScope
+        ) {
+            val cardData = viewModel.buildDataForBundle(it)
+            findNavController().navigate(
+                R.id.action_mainFragment_to_cardFragment,
+                bundleOf(Tools.LIST_LINES to cardData)
+            )
+        }
+        listAdapter.setOnClickListener(onSetClicked!!)
+    }
+
+    private fun showPowerMenu(pairTextSet: PairTextSet, anchorView: View) {
+        requireContext().vibrateShot(VIBRATE_DURATION_100MS)
+        val powerMenu = buildMenu()
+
+        powerMenu.setOnMenuItemClickListener { position, _ ->
+            when (position) {
+                0 -> {
+                    powerMenu.dismiss()
+                }
+
+                1 -> {
+                    buildDialog(pairTextSet)
+                    powerMenu.dismiss()
+                }
+            }
+        }
+        powerMenu.showAsAnchorLeftBottom(anchorView)
+    }
+
+
+    private fun buildMenu(): PowerMenu {
+        val typeface = ResourcesCompat.getFont(requireContext(), R.font.roboto_bold)!!
+
+        return PowerMenu.Builder(requireContext())
+            .setLifecycleOwner(viewLifecycleOwner)
+            .addItem(PowerMenuItem(getString(R.string.edit), iconRes = R.drawable.ic_pencil))
+            .addItem(PowerMenuItem(getString(R.string.delete), iconRes = R.drawable.ic_garbage))
+            .setAnimation(MenuAnimation.SHOWUP_TOP_LEFT)
+            .setMenuRadius(MENU_RADIUS)
+            .setShowBackground(true)
+            .setMenuShadow(MENU_SHADOW)
+            .setMenuColor(ContextCompat.getColor(requireContext(), R.color.white))
+            .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            .setTextSize(TEXT_SIZE)
+            .setTextTypeface(typeface)
+            .setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.transparent))
+            .setSize(
+                viewModel.dpToPx(MENU_WIDTH_DP, requireContext()),
+                viewModel.dpToPx(MENU_HEIGHT_DP, requireContext())
+            )
+            .setPadding(MENU_PADDING)
+            .build()
+    }
+
+    private fun buildDialog(pairTextSet: PairTextSet) {
+        val setTitle = pairTextSet.first.name
+        applyBlur()
+        val alertDialogBuilder: AlertDialog.Builder =
+            AlertDialog.Builder(requireContext(), R.style.AlertDialog)
+        alertDialogBuilder.setTitle(getString(R.string.remove_dialog))
+            .setMessage(getString(R.string.remove_set, setTitle))
+            .setPositiveButton(getString(R.string.delete)) { _: DialogInterface, _: Int ->
+                viewModel.removeSet(pairTextSet)
+                clearBlurEffect()
+                showSnackBar(setTitle)
+            }
+            .setNegativeButton(getString(R.string.no)) { _: DialogInterface, _: Int ->
+                clearBlurEffect()
+            }
+        val alertDialog: AlertDialog = alertDialogBuilder.create()
+        alertDialog.setOnCancelListener {
+            clearBlurEffect()
+        }
+        alertDialog.show()
+        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
+            .setTextColor(resources.getColor(R.color.black, null))
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            .setTextColor(resources.getColor(R.color.red, null))
+    }
+
+    private fun applyBlur() {
+        (requireActivity() as RootActivity).applyBlurEffect()
+    }
+
+    private fun clearBlurEffect() {
+        (requireActivity() as RootActivity).clearBlurEffect()
+    }
+
+    private fun showSnackBar(setTitle: String) {
+        Tools.showSnackbar(binding.root, getString(R.string.successfully_removed, setTitle), requireContext())
+    }
+
+    companion object {
+        private const val MENU_WIDTH_DP = 260
+        private const val MENU_HEIGHT_DP = 180
+        private const val MENU_PADDING = 16
+        private const val MENU_RADIUS = 48f
+        private const val MENU_SHADOW = 48f
+        private const val TEXT_SIZE = 18
+        private const val VIBRATE_DURATION_100MS = 100L
     }
 }

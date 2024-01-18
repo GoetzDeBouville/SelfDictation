@@ -1,10 +1,7 @@
 package com.hellcorp.selfdictation.ui.usersetlist
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import android.content.Context
 import androidx.lifecycle.viewModelScope
-import com.airbnb.lottie.animation.content.Content
 import com.hellcorp.selfdictation.domain.TextSetInteractor
 import com.hellcorp.selfdictation.domain.models.SetListState
 import com.hellcorp.selfdictation.domain.models.TextSet
@@ -86,5 +83,26 @@ class UsersSetViewmodel(private val interactor: TextSetInteractor) : BaseViewMod
             it.first.classNumber == classNumber
         }
         _state.value = SetListState.Content(filteredList, filteredList.size)
+    }
+
+    fun buildDataForBundle(pairTextSet: PairTextSet) = arrayOf(
+        pairTextSet.first.name,
+        pairTextSet.second[0].line,
+        pairTextSet.second[1].line,
+        pairTextSet.second[2].line,
+        pairTextSet.second[3].line,
+        pairTextSet.second[4].line,
+        pairTextSet.second[5].line,
+        pairTextSet.second[0].timeSec.toString(),
+        pairTextSet.second[1].timeSec.toString(),
+        pairTextSet.second[2].timeSec.toString(),
+        pairTextSet.second[3].timeSec.toString(),
+        pairTextSet.second[4].timeSec.toString(),
+        pairTextSet.second[5].timeSec.toString(),
+    )
+
+    fun dpToPx(dp: Int, context: Context): Int {
+        val density = context.resources.displayMetrics.density
+        return (dp * density).toInt()
     }
 }
