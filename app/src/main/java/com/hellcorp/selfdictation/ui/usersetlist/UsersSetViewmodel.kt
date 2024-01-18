@@ -1,8 +1,7 @@
 package com.hellcorp.selfdictation.ui.usersetlist
 
-import android.util.Log
+import android.content.Context
 import androidx.lifecycle.viewModelScope
-import com.airbnb.lottie.animation.content.Content
 import com.hellcorp.selfdictation.domain.TextSetInteractor
 import com.hellcorp.selfdictation.domain.models.SetListState
 import com.hellcorp.selfdictation.domain.models.TextSet
@@ -14,16 +13,16 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 
-class UsersSetViewmodel(val interactor: TextSetInteractor) : BaseViewModel() {
-    private val pairList: MutableList<PairTextSet> = mutableListOf()
+class UsersSetViewmodel(private val interactor: TextSetInteractor) : BaseViewModel() {
+    private var pairList: MutableList<PairTextSet> = mutableListOf()
     private var _state = MutableStateFlow<SetListState>(SetListState.Loading)
     val state: StateFlow<SetListState>
         get() = _state
 
     fun loadDataFromDB() {
         viewModelScope.launch {
+            pairList.clear()
             interactor.getSetList().catch {
-                Log.e("UsersSetViewmodel", "${it.cause} : ${it.message} \n${it.localizedMessage}")
             }.collect { result ->
                 processResult(result)
             }
@@ -35,12 +34,12 @@ class UsersSetViewmodel(val interactor: TextSetInteractor) : BaseViewModel() {
             _state.value = SetListState.Empty
         } else {
             viewModelScope.launch {
-                list.forEach { set ->
-                    val lines = interactor.getLineList(set.id!!).firstOrNull() ?: emptyList()
-                    val pair = PairTextSet(set, lines)
-                    pairList.add(pair)
+                val pairs = list.map { set ->
+                    val lines = interactor.getLineList(set.id).firstOrNull() ?: emptyList()
+                    PairTextSet(set, lines)
                 }
-                _state.value = SetListState.Content(pairList)
+                pairList = pairs.toMutableList()
+                _state.value = SetListState.Content(pairList, pairList.size)
             }
         }
     }
@@ -49,33 +48,33 @@ class UsersSetViewmodel(val interactor: TextSetInteractor) : BaseViewModel() {
         viewModelScope.launch {
             interactor.addNewSet(pairTextSet.first)
             pairTextSet.second.forEach {
-                interactor.addLineToSet(pairTextSet.first, it)
+                interactor.addLineToSet(pairTextSet.first.id, it)
             }
             pairList.add(pairTextSet)
-            _state.value = SetListState.Content(pairList)
+            _state.value = SetListState.Content(pairList, pairList.size)
         }
     }
 
     fun removeSet(pairTextSet: PairTextSet) {
         viewModelScope.launch {
             pairList.remove(pairTextSet)
-            interactor.getLineList(pairTextSet.first.id!!).collect { list ->
+            interactor.getLineList(pairTextSet.first.id).collect { list ->
                 list.forEach { line ->
-                    interactor.removeLine(line.id!!)
+                    interactor.removeLine(line.id)
                 }
             }
-            interactor.removeSet(pairTextSet.first.id!!)
+            interactor.removeSet(pairTextSet.first.id)
             if (pairList.isEmpty()) {
                 _state.value = SetListState.Empty
             } else {
-                _state.value = SetListState.Content(pairList)
+                _state.value = SetListState.Content(pairList, pairList.size)
             }
         }
     }
 
-    fun updateSetList(pairTextSet: PairTextSet) {
+    fun updateSetList(setId: Int) {
         viewModelScope.launch {
-            interactor.updateSet(pairTextSet.first)
+            interactor.updateSet(setId)
         }
     }
 
@@ -83,6 +82,27 @@ class UsersSetViewmodel(val interactor: TextSetInteractor) : BaseViewModel() {
         val filteredList = pairList.filter {
             it.first.classNumber == classNumber
         }
-        _state.value = SetListState.Content(filteredList)
+        _state.value = SetListState.Content(filteredList, filteredList.size)
+    }
+
+    fun buildDataForBundle(pairTextSet: PairTextSet) = arrayOf(
+        pairTextSet.first.name,
+        pairTextSet.second[0].line,
+        pairTextSet.second[1].line,
+        pairTextSet.second[2].line,
+        pairTextSet.second[3].line,
+        pairTextSet.second[4].line,
+        pairTextSet.second[5].line,
+        pairTextSet.second[0].timeSec.toString(),
+        pairTextSet.second[1].timeSec.toString(),
+        pairTextSet.second[2].timeSec.toString(),
+        pairTextSet.second[3].timeSec.toString(),
+        pairTextSet.second[4].timeSec.toString(),
+        pairTextSet.second[5].timeSec.toString(),
+    )
+
+    fun dpToPx(dp: Int, context: Context): Int {
+        val density = context.resources.displayMetrics.density
+        return (dp * density).toInt()
     }
 }

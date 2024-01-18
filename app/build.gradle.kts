@@ -63,4 +63,6 @@ dependencies {
     implementation("androidx.room:room-ktx:$roomVersion")
 
     implementation("com.airbnb.android:lottie:6.1.0")
+
+    implementation("com.github.skydoves:powermenu:2.2.4")
 }

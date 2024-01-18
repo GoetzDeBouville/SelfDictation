@@ -5,6 +5,7 @@
     style="@style/BasicCardsStyle"
     android:layout_width="256dp"
     app:cardCornerRadius="16dp"
+    android:layout_marginTop="8dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:strokeColor="@color/main_background"
@@ -16,7 +17,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/set_title1"
+            android:id="@+id/tv_set_title1"
             style="@style/CardTextStyle"
             android:layout_gravity="center_horizontal"
             android:padding="8dp"
@@ -32,42 +33,42 @@
             app:strokeColor="@color/black" />
 
         <TextView
-            android:id="@+id/line1"
+            android:id="@+id/tv_line1"
             style="@style/CardTextStyle"
             android:layout_marginStart="8dp"
             android:fontFamily="@font/roboto_regular"
             tools:text="[Предложение 1]" />
 
         <TextView
-            android:id="@+id/line2"
+            android:id="@+id/tv_line2"
             style="@style/CardTextStyle"
             android:layout_marginStart="8dp"
             android:fontFamily="@font/roboto_regular"
             tools:text="[Предложение 2]" />
 
         <TextView
-            android:id="@+id/line3"
+            android:id="@+id/tv_line3"
             style="@style/CardTextStyle"
             android:layout_marginStart="8dp"
             android:fontFamily="@font/roboto_regular"
             tools:text="[Предложение 3]" />
 
         <TextView
-            android:id="@+id/line4"
+            android:id="@+id/tv_line4"
             style="@style/CardTextStyle"
             android:layout_marginStart="8dp"
             android:fontFamily="@font/roboto_regular"
             tools:text="[Предложение 4]" />
 
         <TextView
-            android:id="@+id/line5"
+            android:id="@+id/tv_line5"
             style="@style/CardTextStyle"
             android:layout_marginStart="8dp"
             android:fontFamily="@font/roboto_regular"
             tools:text="[Предложение 5]" />
 
         <TextView
-            android:id="@+id/line6"
+            android:id="@+id/tv_line6"
             style="@style/CardTextStyle"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
