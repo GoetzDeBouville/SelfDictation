@@ -5,22 +5,29 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.hellcorp.selfdictation.R
 import com.hellcorp.selfdictation.databinding.FragmentNewCardBinding
 import com.hellcorp.selfdictation.domain.models.Line
 import com.hellcorp.selfdictation.domain.models.TextSet
+import com.hellcorp.selfdictation.ui.main.viewmodels.PairTextSet
 import com.hellcorp.selfdictation.utils.BaseFragment
+import com.hellcorp.selfdictation.utils.Tools
 import com.hellcorp.selfdictation.utils.vibroError
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import kotlin.time.Duration.Companion.microseconds
 
-class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
+open class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
     FragmentNewCardBinding::inflate
 ) {
     override val viewModel: NewCardViewModel by viewModel()
     private lateinit var fields: List<TextInputEditText>
-
+    private lateinit var mapOfLinesToDuration: Map<TextInputEditText, TextInputEditText>
+    private var setId: Int? = null
+    private var pairTextSet : PairTextSet? = null
     private var classNumber = 0
 
     override fun initViews() = with(binding) {
@@ -28,11 +35,26 @@ class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
             etSetTitle, etLine1, etLine2, etLine3, etLine4, etLine5, etLine6,
             etDuration1, etDuration2, etDuration3, etDuration4, etDuration5, etDuration6
         )
+        mapOfLinesToDuration = mapOf(
+                etDuration1 to etLine1, etDuration2 to etLine2, etDuration3 to etLine3,
+                etDuration4 to etLine4, etDuration5 to etLine5, etDuration6 to etLine6
+            )
 
+        getSetId()
         initSpinner()
     }
 
     override fun subscribe() {
+        getCardSetData(setId)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.stateData.collect { state ->
+                if (state is CardState.Content) {
+                    pairTextSet = state.data
+                    fetchData(state.data)
+                }
+            }
+        }
+
         viewModel.stateFields.observe(viewLifecycleOwner) { stateFields ->
             colorSaveButton(stateFields)
             saveButtonClickListener(stateFields)
@@ -116,24 +138,18 @@ class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
     }
 
     private fun buildSet() = TextSet(
-        id = 0,
+        id = setId ?: 0,
         name = binding.etSetTitle.text.toString(),
         classNumber = classNumber
     )
 
     private fun buildListOfLines(): List<Line> {
-        val mapOfLinesToDuration = with(binding) {
-            mapOf(
-                etDuration1 to etLine1, etDuration2 to etLine2, etDuration3 to etLine3,
-                etDuration4 to etLine4, etDuration5 to etLine5, etDuration6 to etLine6
-            )
-        }
         val listOfLines: MutableList<Line> = mutableListOf()
         var counter = 0
         mapOfLinesToDuration.forEach {
             counter += 1
             val line = Line(
-                id = 0,
+                id = pairTextSet?.second?.get(counter-1)?.id ?: 0,
                 number = counter,
                 line = it.value.text.toString(),
                 letersNum = viewModel.countLetters(it.value.text ?: ""),
@@ -160,5 +176,32 @@ class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
                 )
             }
         }
+    }
+
+    private fun getSetId() {
+        setId = arguments?.getInt(Tools.SET_ID)
+    }
+
+    private fun getCardSetData(setId: Int?) {
+        if (setId != null) {
+            viewModel.getData(setId)
+        }
+    }
+
+    private fun fetchData(pairTextSet: PairTextSet) = with(binding) {
+        spinnerFilter.setSelection(pairTextSet.first.classNumber - 1)
+        etSetTitle.setText(pairTextSet.first.name)
+        etLine1.setText(pairTextSet.second[0].line)
+        etDuration1.setText(pairTextSet.second[0].timeSec.toString())
+        etLine2.setText(pairTextSet.second[1].line)
+        etDuration2.setText(pairTextSet.second[1].timeSec.toString())
+        etLine3.setText(pairTextSet.second[2].line)
+        etDuration3.setText(pairTextSet.second[2].timeSec.toString())
+        etLine4.setText(pairTextSet.second[3].line)
+        etDuration4.setText(pairTextSet.second[3].timeSec.toString())
+        etLine5.setText(pairTextSet.second[4].line)
+        etDuration5.setText(pairTextSet.second[4].timeSec.toString())
+        etLine6.setText(pairTextSet.second[5].line)
+        etDuration6.setText(pairTextSet.second[5].timeSec.toString())
     }
 }

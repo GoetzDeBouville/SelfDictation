@@ -2,6 +2,7 @@ package com.hellcorp.selfdictation.ui.usersetlist
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -15,15 +16,16 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.hellcorp.selfdictation.R
 import com.hellcorp.selfdictation.RootActivity
 import com.hellcorp.selfdictation.databinding.FragmentUsersSetBinding
-import com.hellcorp.selfdictation.domain.models.PairTextSet
 import com.hellcorp.selfdictation.domain.models.SetListState
 import com.hellcorp.selfdictation.ui.main.fragments.MainFragment
+import com.hellcorp.selfdictation.ui.main.viewmodels.PairTextSet
 import com.hellcorp.selfdictation.ui.usersetlist.adapter.SetTextListAdapter
 import com.hellcorp.selfdictation.utils.BaseFragment
 import com.hellcorp.selfdictation.utils.Tools
 import com.hellcorp.selfdictation.utils.applyBlurEffect
 import com.hellcorp.selfdictation.utils.clearBlurEffect
 import com.hellcorp.selfdictation.utils.debounce
+import com.hellcorp.selfdictation.utils.getquantityString
 import com.hellcorp.selfdictation.utils.vibrateShot
 import com.skydoves.powermenu.MenuAnimation
 import com.skydoves.powermenu.PowerMenu
@@ -125,7 +127,7 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
     }
 
     private fun setCounter(setsNumber: Int) {
-        binding.tvTotalCount.text = getString(R.string.found_number_sets, setsNumber.toString())
+        binding.tvTotalCount.text = setsNumber.getquantityString(requireContext())
     }
 
     private fun setCicklisteners() {
@@ -149,6 +151,10 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
         powerMenu.setOnMenuItemClickListener { position, _ ->
             when (position) {
                 0 -> {
+                    findNavController().navigate(
+                        R.id.action_mainFragment_to_newCardFragment,
+                        bundleOf(Tools.SET_ID to pairTextSet.first.id)
+                    )
                     powerMenu.dismiss()
                 }
 

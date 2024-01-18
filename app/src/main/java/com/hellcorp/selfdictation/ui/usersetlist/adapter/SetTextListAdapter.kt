@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.hellcorp.selfdictation.databinding.ItemSetLinesBinding
-import com.hellcorp.selfdictation.ui.newcard.PairTextSet
+import com.hellcorp.selfdictation.ui.main.viewmodels.PairTextSet
 
 class SetTextListAdapter(
     private var onSetClicked: ((PairTextSet) -> Unit)? = null,

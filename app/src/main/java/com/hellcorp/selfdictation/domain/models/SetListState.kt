@@ -1,8 +1,7 @@
 package com.hellcorp.selfdictation.domain.models
 
 import android.util.Pair
-
-typealias PairTextSet = Pair<TextSet, List<Line>>
+import com.hellcorp.selfdictation.ui.main.viewmodels.PairTextSet
 
 sealed interface SetListState {
     data object Empty : SetListState

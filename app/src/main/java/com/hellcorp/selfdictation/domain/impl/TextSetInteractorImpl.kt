@@ -4,6 +4,7 @@ import com.hellcorp.selfdictation.domain.TextSetInteractor
 import com.hellcorp.selfdictation.domain.TextSetRepository
 import com.hellcorp.selfdictation.domain.models.Line
 import com.hellcorp.selfdictation.domain.models.TextSet
+import com.hellcorp.selfdictation.ui.main.viewmodels.PairTextSet
 import kotlinx.coroutines.flow.Flow
 
 class TextSetInteractorImpl(private val repository: TextSetRepository) : TextSetInteractor {
@@ -19,15 +20,19 @@ class TextSetInteractorImpl(private val repository: TextSetRepository) : TextSet
         repository.updateSet(setId)
     }
 
-    override fun getSetList(): Flow<List<TextSet>> {
+    override suspend fun getCardById(setId: Int): Flow<PairTextSet> {
+        return repository.getCardByID(setId)
+    }
+
+    override suspend fun getSetList(): Flow<List<TextSet>> {
         return repository.getSetList()
     }
 
-    override fun getLineList(setId: Int): Flow<List<Line>> {
+    override suspend fun getLineList(setId: Int): Flow<List<Line>> {
         return repository.getLineList(setId)
     }
 
-    override fun getLastIdSet(): Flow<Int> {
+    override suspend fun getLastIdSet(): Flow<Int> {
         return repository.getLastIdSet()
     }
 

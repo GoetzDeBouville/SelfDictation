@@ -10,11 +10,14 @@ import com.hellcorp.selfdictation.db.entity.TextSetLinesEntity
 import com.hellcorp.selfdictation.domain.models.Line
 import com.hellcorp.selfdictation.domain.models.TextSet
 import com.hellcorp.selfdictation.domain.TextSetRepository
+import com.hellcorp.selfdictation.ui.main.viewmodels.PairTextSet
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
+import java.text.ParseException
 
 class TextSetRepositoryImpl(
     private val appDatabase: AppDatabase,
@@ -23,7 +26,7 @@ class TextSetRepositoryImpl(
 ) : TextSetRepository {
 
     override suspend fun addNewSet(set: TextSet) {
-        withContext(Dispatchers.IO)  {
+        withContext(Dispatchers.IO) {
             val entity = textSetDbConverter.map(set)
             appDatabase.textSetDao().insertSet(entity)
         }
@@ -46,18 +49,25 @@ class TextSetRepositoryImpl(
         }
     }
 
-    override fun getSetList(): Flow<List<TextSet>> = flow {
+    override suspend fun getCardByID(setId: Int): Flow<PairTextSet> = flow {
+        val set = textSetDbConverter.map(appDatabase.textSetDao().getSetById(setId)!!)
+        val setLines = getLineList(setId)
+        val pairTextSet = PairTextSet.create(set, setLines.first())
+        emit(pairTextSet)
+    }.flowOn(Dispatchers.IO)
+
+    override suspend fun getSetList(): Flow<List<TextSet>> = flow {
         val setList = appDatabase.textSetDao().getSet()
         emit(convertSetFromEmtity(setList.sortedBy { it.name }))
     }.flowOn(Dispatchers.IO)
 
-    override fun getLineList(setId: Int): Flow<List<Line>> = flow {
+    override suspend fun getLineList(setId: Int): Flow<List<Line>> = flow {
         val textSetLines = appDatabase.textSetLinesDao().getLinesBySetId(setId)
         val lineList = textSetLines.mapNotNull { appDatabase.linesDao().getLineById(it.linesId) }
         emit(convertLineFromEmtity(lineList.sortedBy { it.number }))
     }.flowOn(Dispatchers.IO)
 
-    override fun getLastIdSet(): Flow<Int> = flow {
+    override suspend fun getLastIdSet(): Flow<Int> = flow {
         emit(appDatabase.textSetDao().getLastId())
     }.flowOn(Dispatchers.IO)
 
