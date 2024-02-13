@@ -19,7 +19,7 @@ The project is build for tablayouts with android sdk 26+
 
 [![](https://img.shields.io/badge/YouTube-0077B5?style=for-the-badge&logo=youtube&logoColor=red)](https://youtu.be/y1MBrBq8l8I?si=5Ty7pZ7KOsiucd13)
 
-<img src="./screenshots/001.gif" width="640" height="480">
+<img src="./screenshots/001.gif" width="720" height="480">
 
 ## TODO
 
