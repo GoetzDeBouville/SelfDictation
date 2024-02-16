@@ -6,6 +6,7 @@ import com.hellcorp.selfdictation.domain.models.Line
 import com.hellcorp.selfdictation.domain.models.TextSet
 import com.hellcorp.selfdictation.ui.main.viewmodels.PairTextSet
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class TextSetInteractorImpl(private val repository: TextSetRepository) : TextSetInteractor {
     override suspend fun addNewSet(set: TextSet) {
@@ -26,6 +27,13 @@ class TextSetInteractorImpl(private val repository: TextSetRepository) : TextSet
 
     override suspend fun getSetList(): Flow<List<TextSet>> {
         return repository.getSetList()
+            .map {setList ->
+                setList.sortedBy {setText ->
+                    val numberRegex = "\\d+".toRegex()
+                    val numberMatchResult = numberRegex.find(setText.name)
+                    numberMatchResult?.value?.toInt() ?: 0
+                }
+            }
     }
 
     override suspend fun getLineList(setId: Int): Flow<List<Line>> {

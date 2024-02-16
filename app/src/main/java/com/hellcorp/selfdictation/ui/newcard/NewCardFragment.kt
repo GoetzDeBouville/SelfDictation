@@ -4,7 +4,6 @@ import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
@@ -19,11 +18,8 @@ import com.hellcorp.selfdictation.ui.usersetlist.adapter.CustomArrayAdapter
 import com.hellcorp.selfdictation.utils.BaseFragment
 import com.hellcorp.selfdictation.utils.Tools
 import com.hellcorp.selfdictation.utils.vibroError
-import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import kotlin.time.Duration.Companion.microseconds
 
 open class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
     FragmentNewCardBinding::inflate
