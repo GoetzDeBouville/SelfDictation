@@ -77,12 +77,14 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
         lottieEmptyList.isVisible = false
         spinnerFilter.isVisible = false
         tvTotalCount.isVisible = false
+        rvSetlist.isVisible = false
     }
 
     private fun setEmptyView() = with(binding) {
         lottieProgressBar.isVisible = false
         lottieEmptyList.isVisible = true
         spinnerFilter.isVisible = false
+        rvSetlist.isVisible = false
         tvTotalCount.isVisible = false
     }
 
@@ -91,6 +93,7 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
         lottieEmptyList.isVisible = false
         spinnerFilter.isVisible = true
         tvTotalCount.isVisible = true
+        rvSetlist.isVisible = true
 
         listAdapter.updateData(content.data)
         setCounter(content.setsNumber)

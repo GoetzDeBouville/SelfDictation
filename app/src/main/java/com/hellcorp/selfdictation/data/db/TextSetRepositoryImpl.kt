@@ -1,6 +1,5 @@
 package com.hellcorp.selfdictation.data.db
 
-import android.util.Log
 import com.hellcorp.selfdictation.data.converters.LinesDbConverter
 import com.hellcorp.selfdictation.data.converters.TextSetDbConverter
 import com.hellcorp.selfdictation.db.AppDatabase
@@ -17,7 +16,6 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
-import java.text.ParseException
 
 class TextSetRepositoryImpl(
     private val appDatabase: AppDatabase,
@@ -58,8 +56,9 @@ class TextSetRepositoryImpl(
 
     override suspend fun getSetList(): Flow<List<TextSet>> = flow {
         val setList = appDatabase.textSetDao().getSet()
-        emit(convertSetFromEmtity(setList.sortedBy { it.name }))
+        emit(convertSetFromEntity(setList))
     }.flowOn(Dispatchers.IO)
+
 
     override suspend fun getLineList(setId: Int): Flow<List<Line>> = flow {
         val textSetLines = appDatabase.textSetLinesDao().getLinesBySetId(setId)
@@ -79,7 +78,7 @@ class TextSetRepositoryImpl(
         appDatabase.linesDao().removeLineById(id)
     }
 
-    private fun convertSetFromEmtity(set: List<TextSetEntity>): List<TextSet> = set.map {
+    private fun convertSetFromEntity(set: List<TextSetEntity>): List<TextSet> = set.map {
         textSetDbConverter.map(it)
     }
 

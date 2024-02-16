@@ -1,9 +1,9 @@
 package com.hellcorp.selfdictation.ui.newcard
 
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
@@ -20,7 +20,6 @@ import com.hellcorp.selfdictation.utils.Tools
 import com.hellcorp.selfdictation.utils.vibroError
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import kotlin.time.Duration.Companion.microseconds
 
 open class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewModel>(
     FragmentNewCardBinding::inflate
@@ -125,6 +124,11 @@ open class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewMod
         cvSave.setOnClickListener {
             if (stateFields) {
                 saveCard()
+                val handler = Handler()
+
+                handler.postDelayed({
+                    findNavController().popBackStack()
+                }, 500)
             } else {
                 showValidation()
             }
@@ -137,7 +141,6 @@ open class NewCardFragment : BaseFragment<FragmentNewCardBinding, NewCardViewMod
         val preparedData = PairTextSet.create(setLines, finalListOfLines)
         Log.i("MyLog", "NewCarsFragment prepareData = $preparedData")
         viewModel.saveDataToDB(preparedData)
-        findNavController().popBackStack()
     }
 
     private fun buildSet() = TextSet(

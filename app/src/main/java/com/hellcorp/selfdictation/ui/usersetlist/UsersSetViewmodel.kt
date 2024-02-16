@@ -7,10 +7,12 @@ import com.hellcorp.selfdictation.domain.models.SetListState
 import com.hellcorp.selfdictation.domain.models.TextSet
 import com.hellcorp.selfdictation.ui.main.viewmodels.PairTextSet
 import com.hellcorp.selfdictation.utils.BaseViewModel
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.zip
 import kotlinx.coroutines.launch
 
 class UsersSetViewmodel(private val interactor: TextSetInteractor) : BaseViewModel() {
