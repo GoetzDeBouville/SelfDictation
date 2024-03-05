@@ -4,6 +4,7 @@ plugins {
     id("org.jetbrains.kotlin.kapt")
     id("kotlin-parcelize")
     id("kotlin-kapt")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -42,6 +43,7 @@ android {
 }
 
 dependencies {
+    implementation("com.google.firebase:firebase-analytics:21.5.1")
     val roomVersion = "2.6.1"
 
     implementation("androidx.core:core-ktx:1.12.0")
