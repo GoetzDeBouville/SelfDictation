@@ -14,6 +14,7 @@ The project is build for tablayouts with android sdk 26+
 - DB: Room Persistent Library
 - DI - Koin
 - Lottie
+- Firebase analytics (for demo only)
 
 ## Screencast 
 
