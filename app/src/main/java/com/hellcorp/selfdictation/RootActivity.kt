@@ -1,11 +1,15 @@
 package com.hellcorp.selfdictation
 
 import android.os.Build
+import android.util.Log
 import android.view.View
 import android.view.WindowInsetsController
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.NavHostFragment
+import com.google.firebase.Firebase
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.analytics
 import com.hellcorp.selfdictation.databinding.ActivityMainBinding
 import com.hellcorp.selfdictation.utils.BaseActivity
 import com.hellcorp.selfdictation.utils.Tools
@@ -15,7 +19,9 @@ import com.hellcorp.selfdictation.utils.clearBlurEffect
 class RootActivity : BaseActivity<ActivityMainBinding>(
     ActivityMainBinding::inflate
 ) {
+    private lateinit var analytics: FirebaseAnalytics
     override fun initViews() {
+        analytics = Firebase.analytics
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.container_view) as NavHostFragment
         val navController = navHostFragment.navController
