@@ -2,10 +2,9 @@ package com.hellcorp.selfdictation.ui.usersetlist
 
 import android.app.AlertDialog
 import android.content.DialogInterface
-import android.os.Bundle
+import android.graphics.PixelFormat
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.os.bundleOf
@@ -17,14 +16,12 @@ import com.hellcorp.selfdictation.R
 import com.hellcorp.selfdictation.RootActivity
 import com.hellcorp.selfdictation.databinding.FragmentUsersSetBinding
 import com.hellcorp.selfdictation.domain.models.SetListState
-import com.hellcorp.selfdictation.ui.main.fragments.MainFragment
 import com.hellcorp.selfdictation.ui.main.viewmodels.PairTextSet
 import com.hellcorp.selfdictation.ui.usersetlist.adapter.CustomArrayAdapter
 import com.hellcorp.selfdictation.ui.usersetlist.adapter.SetTextListAdapter
+import com.hellcorp.selfdictation.ui.usersetlist.render.DustRenderer
 import com.hellcorp.selfdictation.utils.BaseFragment
 import com.hellcorp.selfdictation.utils.Tools
-import com.hellcorp.selfdictation.utils.applyBlurEffect
-import com.hellcorp.selfdictation.utils.clearBlurEffect
 import com.hellcorp.selfdictation.utils.debounce
 import com.hellcorp.selfdictation.utils.getquantityString
 import com.hellcorp.selfdictation.utils.vibrateShot
@@ -43,11 +40,22 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
         onSetClicked,
         onSetLongClicked = ::showPowerMenu
     )
+    private lateinit var dustRenderer: DustRenderer
 
     override fun initViews() {
         viewModel.loadDataFromDB()
         initSpinner()
         initAdapter()
+        dustRenderer = DustRenderer(requireContext())
+
+        with(binding.glSurfaceView) {
+            setEGLContextClientVersion(2)
+            setZOrderOnTop(true)
+            setEGLConfigChooser(8, 8, 8, 8, 16, 0)
+            holder.setFormat(PixelFormat.RGBA_8888)
+            setRenderer(dustRenderer)
+        }
+        dustRenderer.composeView(binding.lottieAddNewSet, null)
     }
 
     override fun subscribe() {
@@ -62,6 +70,20 @@ class UsersSetFragment : BaseFragment<FragmentUsersSetBinding, UsersSetViewmodel
         }
 
         setCicklisteners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.glSurfaceView.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.glSurfaceView.onPause()
+    }
+
+    private fun addRenderInfo(view: View?, offset: IntArray?) {
+        dustRenderer.composeView(view, offset)
     }
 
     private fun renderState(state: SetListState) {
